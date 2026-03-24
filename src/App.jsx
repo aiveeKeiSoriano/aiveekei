@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <section id="center">
-          <h1>aiveekei</h1>
+          <h1>aivee kei soriano</h1>
       </section>
 
       {/* <div className="ticks"></div>
