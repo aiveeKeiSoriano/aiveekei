@@ -1,20 +1,16 @@
+import "./App.css";
+import Nav from "./components/nav";
 
-import './App.css'
 
 function App() {
-
   return (
     <>
+      <Nav />
       <section id="center">
-          <h1>aivee kei soriano</h1>
+        <h1>aivee kei soriano</h1>
       </section>
-
-      {/* <div className="ticks"></div>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
