@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import LogoBlackBg from "../assets/black-bg.png"
+import LogoBlackBg from "../assets/logo-black-bg.png"
 
 
 const LogoWrapper = styled.div`
@@ -8,6 +8,7 @@ const LogoWrapper = styled.div`
     justify-content: center;
     object-fit: contain;
     padding: 20px 20px 16px;
+    cursor: pointer;
 `
 
 const LogoImg = styled.img`
