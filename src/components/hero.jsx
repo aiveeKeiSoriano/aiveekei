@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import HeroAsset from "../assets/hero.png";
+import HeroAsset from "../assets/Hero.png";
 
 const HeroContainer = styled.div`
   display: flex;
