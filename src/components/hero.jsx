@@ -9,8 +9,18 @@ const HeroContainer = styled.div`
   align-items: center;
   gap: 100px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mpbile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: center;
     flex-direction: column;
+    gap: 0;
+    padding: 5em 8em 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+    padding: 2em 2em 0;
   }
 `;
 
@@ -26,6 +36,10 @@ const HeroText = styled.p`
   line-height: 0.8;
   font-weight: 700;
   text-align: left;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 6rem;
+  }
 `;
 
 const HeroSubtext = styled.p`
@@ -36,8 +50,11 @@ const HeroSubtext = styled.p`
 `;
 
 const HeroImg = styled.img`
-    width: 450px;
-`
+  width: 450px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 100%;
+  }
+`;
 
 export default function Hero() {
   return (

@@ -3,6 +3,6 @@
 
 :root {
   background-image: url('./assets/pattern.svg');
-  position: "0px 0px";
-  size: "6px";
+  background-position: 0px 0px;
+  background-size: 6px;
 }

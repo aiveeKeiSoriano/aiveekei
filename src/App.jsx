@@ -11,11 +11,6 @@ const Center = styled.div`
   place-items: center;
   flex-grow: 1;
   background-color: ${({ theme }) => theme.colors.bg};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
 `;
 
 function App() {
