@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import LogoBlackBg from "../assets/logo-black-bg.png"
+import LogoBlackBg from "../../assets/logo-black-bg.png"
 
 
-const LogoWrapper = styled.div`
+const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,17 +11,16 @@ const LogoWrapper = styled.div`
     cursor: pointer;
 `
 
-const LogoImg = styled.img`
+const Img = styled.img`
     width: 60px;
     height: 60px;
     object-fit: contain;
 `
 
-
 export default function Logo() {
     return(
-        <LogoWrapper>
-            <LogoImg src={LogoBlackBg} alt="logo" />
-        </LogoWrapper>
+        <Wrapper>
+            <Img src={LogoBlackBg} alt="logo" />
+        </Wrapper>
     )
 }

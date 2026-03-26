@@ -1,26 +1,28 @@
 import styled from "styled-components"
-import Logo from "./logo"
-import NavButton from "./nav-button"
+import Logo from "../Logo/Logo"
+import NavButton from "../NavButton/NavButton"
 
 
-const NavigationWrapper = styled.div`
+const Wrapper = styled.div`
     width: 100%;
     background-color: ${props => props.theme.colors.primary};
     border-bottom: 4px solid ${props => props.theme.colors.border};
+    position: sticky;
+    top: 0;
 `
 
-const NavItems = styled.div`
+const Items = styled.div`
     display: flex;
 `
 
 export default function Nav() {
     
     return (
-        <NavigationWrapper>
-            <NavItems>
+        <Wrapper>
+            <Items>
                 <Logo />
                 <NavButton label="Projects" />
-            </NavItems>
-        </NavigationWrapper>
+            </Items>
+        </Wrapper>
     )
 }

@@ -1,7 +1,7 @@
 import { ThemeProvider, styled } from "styled-components";
-import Nav from "./components/nav";
-import Hero from "./components/hero";
+import Nav from "./components/Nav/Nav";
 import { GlobalStyle, theme } from "./theme";
+import Hero from "./components/Hero/Hero";
 
 const Center = styled.div`
   display: flex;

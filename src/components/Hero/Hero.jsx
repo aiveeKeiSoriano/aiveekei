@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import HeroAsset from "../assets/Hero.png";
+import HeroAsset from "../../assets/Hero.png";
 
-const HeroContainer = styled.div`
+const Container = styled.div`
   display: flex;
   padding: 0 8em;
   justify-content: space-between;
@@ -24,12 +24,12 @@ const HeroContainer = styled.div`
   }
 `;
 
-const HeroTextContainer = styled.div`
+const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const HeroText = styled.p`
+const Text = styled.p`
   margin-top: 0px;
   margin-bottom: 12px;
   font-size: 8rem;
@@ -42,14 +42,14 @@ const HeroText = styled.p`
   }
 `;
 
-const HeroSubtext = styled.p`
+const Subtext = styled.p`
   font-size: 2.3rem;
   line-height: 2.5rem;
   text-align: left;
   font-weight: 400;
 `;
 
-const HeroImg = styled.img`
+const Img = styled.img`
   width: 450px;
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 100%;
@@ -58,14 +58,14 @@ const HeroImg = styled.img`
 
 export default function Hero() {
   return (
-    <HeroContainer>
-      <HeroTextContainer>
-        <HeroText>Hello.</HeroText>
-        <HeroText>I'm</HeroText>
-        <HeroText>Aivee.</HeroText>
-        <HeroSubtext>I'm a web developer from the Philippines.</HeroSubtext>
-      </HeroTextContainer>
-      <HeroImg src={HeroAsset} alt="hero" />
-    </HeroContainer>
+    <Container>
+      <TextContainer>
+        <Text>Hello.</Text>
+        <Text>I'm</Text>
+        <Text>Aivee.</Text>
+        <Subtext>I'm a web developer from the Philippines.</Subtext>
+      </TextContainer>
+      <Img src={HeroAsset} alt="hero" />
+    </Container>
   );
 }
