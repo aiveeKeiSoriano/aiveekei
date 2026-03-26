@@ -5,8 +5,8 @@ import NavButton from "./nav-button"
 
 const NavigationWrapper = styled.div`
     width: 100%;
-    background-color: var(--primary);
-    border-bottom: 4px solid var(--border);
+    background-color: ${props => props.theme.colors.primary};
+    border-bottom: 4px solid ${props => props.theme.colors.border};
 `
 
 const NavItems = styled.div`

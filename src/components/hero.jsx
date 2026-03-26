@@ -8,6 +8,10 @@ const HeroContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 100px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mpbile}) {
+    flex-direction: column;
+  }
 `;
 
 const HeroTextContainer = styled.div`

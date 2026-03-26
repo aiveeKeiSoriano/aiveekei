@@ -5,8 +5,8 @@ const Button = styled.button`
     padding: 0.5em 1em;
     border: none;
     background-color: transparent;
-    color: var(--text);
-    font-family: var(--sans);
+    color: ${props => props.theme.colors.text};
+    font-family: ${props => props.theme.fonts.sans};
     padding: 20px 20px 16px;
     font-size: 2.8rem;
     line-height: 1;
@@ -15,13 +15,13 @@ const Button = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: var(--secondary);
-        color: var(--text-secondary);;
+        background-color: ${props => props.theme.colors.secondary};
+        color: ${props => props.theme.colors.textSecondary};
     }
 
     ${props => props.$isActive && `
-        background-color: var(--secondary);
-        color: var(--text-secondary);
+        background-color: ${props => props.theme.colors.secondary};
+        color: ${props => props.theme.colors.textSecondary};
     `}
 `
 
