@@ -7,6 +7,7 @@ export const theme = {
     bg: "#fff",
     primary: "#c4c4c4",
     secondary: "#000000",
+    tertiary: "#737373",
     border: "#000000",
   },
 
@@ -44,15 +45,14 @@ export const theme = {
   },
 
   breakpoints: {
-    mobile: '480px',
+    mobile: "480px",
     tablet: "1024px",
   },
 
   layout: {
-    maxWidth: "1126px",
+    maxWidth: "1200px",
     borderWidth: "4px",
   },
-
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -98,6 +98,7 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.bg};
   }
 
   h1,
@@ -139,4 +140,5 @@ export const GlobalStyle = createGlobalStyle`
     line-height: ${({ theme }) => theme.lineHeights.code};
     padding: 4px 8px;
   }
+
 `;

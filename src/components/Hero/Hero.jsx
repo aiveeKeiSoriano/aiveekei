@@ -4,16 +4,15 @@ import HeroAsset from "../../assets/Hero.png";
 
 const Container = styled.div`
   display: flex;
-  padding: 0 8em;
-  justify-content: space-between;
+  padding: 3em 6em;
+  justify-content: center;
   align-items: center;
-  gap: 100px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     justify-content: center;
     flex-direction: column;
     gap: 0;
-    padding: 5em 8em 0;
+    padding: 5em 6em 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -32,13 +31,13 @@ const TextContainer = styled.div`
 const Text = styled.p`
   margin-top: 0px;
   margin-bottom: 12px;
-  font-size: 8rem;
+  font-size: 7rem;
   line-height: 0.8;
   font-weight: 700;
   text-align: left;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 6rem;
+    font-size: 4rem;
   }
 `;
 
@@ -50,9 +49,12 @@ const Subtext = styled.p`
 `;
 
 const Img = styled.img`
-  width: 450px;
+  width: 530px;
+  padding: 0 0 0 2em;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 100%;
+    padding: 0;
   }
 `;
 
@@ -61,9 +63,8 @@ export default function Hero() {
     <Container>
       <TextContainer>
         <Text>Hello.</Text>
-        <Text>I'm</Text>
-        <Text>Aivee.</Text>
-        <Subtext>I'm a web developer from the Philippines.</Subtext>
+        <Text>I'm Aivee.</Text>
+        <Subtext>I'm a <b>web developer</b> from the Philippines.</Subtext>
       </TextContainer>
       <Img src={HeroAsset} alt="hero" />
     </Container>
