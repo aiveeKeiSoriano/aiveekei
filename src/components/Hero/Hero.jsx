@@ -4,21 +4,18 @@ import HeroAsset from "../../assets/Hero.png";
 
 const Container = styled.div`
   display: flex;
-  padding: 3em 6em;
-  justify-content: center;
-  align-items: center;
+  padding: 6em;
+  gap: 2em;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     justify-content: center;
     flex-direction: column;
-    gap: 0;
     padding: 5em 6em 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     justify-content: center;
     flex-direction: column;
-    gap: 0;
     padding: 2em 2em 0;
   }
 `;
@@ -48,13 +45,23 @@ const Subtext = styled.p`
   font-weight: 400;
 `;
 
-const Img = styled.img`
+const ImgContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 530px;
-  padding: 0 0 0 2em;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 100%;
     padding: 0;
+  }
+`;
+
+const Img = styled.img`
+  width: 530px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 100%;
   }
 `;
 
@@ -64,9 +71,13 @@ export default function Hero() {
       <TextContainer>
         <Text>Hello.</Text>
         <Text>I'm Aivee.</Text>
-        <Subtext>I'm a <b>web developer</b> from the Philippines.</Subtext>
+        <Subtext>
+          I'm a <b>web developer</b> from the Philippines.
+        </Subtext>
       </TextContainer>
-      <Img src={HeroAsset} alt="hero" />
+      <ImgContainer>
+        <Img src={HeroAsset} alt="hero" />
+      </ImgContainer>
     </Container>
   );
 }
