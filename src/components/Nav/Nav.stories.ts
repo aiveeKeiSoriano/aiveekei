@@ -6,12 +6,11 @@ export default {
   parameters: {
     layout: "fullscreen",
   },
-  tags: ["autodocs"],
 };
 
 export const Default = {
-    args: {},
-  };
+  args: {},
+};
 
 // export const Desktop = {
 //   globals: {

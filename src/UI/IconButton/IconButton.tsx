@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import type { ImageSources } from "../Image/Image";
+import Image from "../Image/Image";
 
 const Wrapper = styled.div`
   cursor: pointer;
@@ -6,7 +8,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Img = styled.img`
+const Img = styled(Image)`
   transition: filter 0.3s ease, transform 0.3s ease;
 
   &:active {
@@ -38,13 +40,19 @@ const Img = styled.img`
 `;
 
 interface IconButtonProps {
-  icon: string;
+  icon: string | ImageSources;
   height: string;
   width: string;
   onClick?: () => void;
 }
 
-export default function IconButton({ icon, height, width, onClick, ...props }: IconButtonProps) {
+export default function IconButton({
+  icon,
+  height,
+  width,
+  onClick,
+  ...props
+}: IconButtonProps) {
   return (
     <Wrapper onClick={onClick} {...props}>
       <Img src={icon} height={height} width={width} />

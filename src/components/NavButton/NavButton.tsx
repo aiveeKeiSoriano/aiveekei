@@ -17,6 +17,7 @@ const Button = styled.button<ButtonProps>`
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
+    transition: background-color 0.5s linear, color 0.5s linear;
 
     &:hover {
         background-color: ${props => props.theme.colors.secondary};

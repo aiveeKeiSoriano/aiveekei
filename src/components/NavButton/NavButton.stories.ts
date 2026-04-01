@@ -3,7 +3,6 @@ import NavButton from "./NavButton";
 export default {
   title: "NavButton",
   component: NavButton,
-  tags: ["autodocs"],
 };
 
 export const Default = {

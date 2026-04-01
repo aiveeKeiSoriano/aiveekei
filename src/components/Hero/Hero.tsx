@@ -1,6 +1,10 @@
 import styled from "styled-components";
-import HeroImg from "../../assets/Hero.png";
+import HeroPng from "../../assets/Hero/Hero.png";
+import HeroWebp from "../../assets/Hero/Hero.webp";
+import HeroAvif from "../../assets/Hero/Hero.avif";
 import ReactIconSVG from "./ReactIconSVG";
+import type { ImageSources } from "../../UI/Image/Image";
+import Image from "../../UI/Image/Image";
 
 const Container = styled.div`
   display: flex;
@@ -24,6 +28,11 @@ const Container = styled.div`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 40%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    max-width: 100%;
+  }
 `;
 
 const Text = styled.p`
@@ -63,8 +72,9 @@ const ImgContainer = styled.div`
   }
 `;
 
-const Img = styled.img`
+const Img = styled(Image)`
   width: 530px;
+  max-width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 100%;
@@ -72,6 +82,14 @@ const Img = styled.img`
 `;
 
 export default function Hero() {
+  const HERO_SOURCES = {
+    fallback: HeroPng,
+    sources: [
+      { src: HeroAvif, type: "image/avif" },
+      { src: HeroWebp, type: "image/webp" },
+    ],
+  } satisfies ImageSources;
+
   return (
     <Container>
       <TextContainer>
@@ -82,8 +100,7 @@ export default function Hero() {
         </Subtext>
       </TextContainer>
       <ImgContainer>
-        <Img src={HeroImg} alt="hero" />
-        {/* <HeroSVG /> */}
+        <Img src={HERO_SOURCES} alt="hero" />
         <ReactIconSVG />
       </ImgContainer>
     </Container>

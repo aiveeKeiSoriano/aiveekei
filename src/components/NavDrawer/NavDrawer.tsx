@@ -21,6 +21,10 @@ const Wrapper = styled.div<WrapperProps>`
   flex-direction: column;
   border-left: 4px solid ${(props) => props.theme.colors.border};
   background-color: ${(props) => props.theme.colors.bg};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    display: none;
+  }
 `;
 
 const Header = styled.div`
