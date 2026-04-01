@@ -1,6 +1,7 @@
 import type React from "react";
 import styled from "styled-components";
 import Nav from "./components/Nav/Nav";
+import CrossHair from "./components/CrossHair/CrossHair";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -45,6 +46,7 @@ export default function Layout({ children }: LayoutProps) {
     <Wrapper>
       <Nav />
       <Content>{children}</Content>
+      <CrossHair />
     </Wrapper>
   );
 }

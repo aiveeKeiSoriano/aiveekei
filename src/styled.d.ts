@@ -41,10 +41,7 @@ declare module "styled-components" {
     breakpoints: {
       mobile: string;
       tablet: string;
-    };
-    layout: {
-      maxWidth: string;
-      borderWidth: string;
+      desktop: string;
     };
   }
 }

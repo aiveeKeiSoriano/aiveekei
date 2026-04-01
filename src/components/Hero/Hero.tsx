@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import HeroAsset from "../../assets/Hero.png";
+import HeroImg from "../../assets/Hero.png";
+import ReactIconSVG from "./ReactIconSVG";
 
 const Container = styled.div`
   display: flex;
   padding: 6em;
   gap: 2em;
+  user-select: none !important;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     justify-content: center;
@@ -32,6 +34,8 @@ const Text = styled.p`
   font-weight: 700;
   text-align: left;
 
+  user-select: none !important;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 4rem;
   }
@@ -42,13 +46,16 @@ const Subtext = styled.p`
   line-height: 2.5rem;
   text-align: left;
   font-weight: 400;
+  user-select: none !important;
 `;
 
 const ImgContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 530px;
+  height: fit-content;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 100%;
@@ -75,7 +82,9 @@ export default function Hero() {
         </Subtext>
       </TextContainer>
       <ImgContainer>
-        <Img src={HeroAsset} alt="hero" />
+        <Img src={HeroImg} alt="hero" />
+        {/* <HeroSVG /> */}
+        <ReactIconSVG />
       </ImgContainer>
     </Container>
   );

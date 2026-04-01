@@ -48,11 +48,7 @@ export const theme: DefaultTheme = {
   breakpoints: {
     mobile: "480px",
     tablet: "1024px",
-  },
-
-  layout: {
-    maxWidth: "1200px",
-    borderWidth: "4px",
+    desktop: "1200px",
   },
 };
 
@@ -89,11 +85,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    width: ${({ theme }) => theme.layout.maxWidth};
+    width: ${({ theme }) => theme.breakpoints.desktop};
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
-    border-inline: ${({ theme }) => theme.layout.borderWidth} solid
+    border-inline: 4px solid
       ${({ theme }) => theme.colors.border};
     min-height: 100svh;
     display: flex;
