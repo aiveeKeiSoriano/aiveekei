@@ -1,5 +1,4 @@
-import type React from "react";
-
+import { Outlet } from "react-router";
 import styled from "styled-components";
 
 import CrossHair from "./components/CrossHair/CrossHair";
@@ -39,15 +38,13 @@ const Content = styled.div`
   }
 `;
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-export default function Layout({ children }: LayoutProps) {
+export default function Layout() {
   return (
     <Wrapper>
       <Nav />
-      <Content>{children}</Content>
+      <Content>
+        <Outlet />
+      </Content>
       <CrossHair />
     </Wrapper>
   );

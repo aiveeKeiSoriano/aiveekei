@@ -6,7 +6,7 @@ export const theme: DefaultTheme = {
   breakpoints: {
     desktop: "1200px",
     mobile: "480px",
-    tablet: "1024px",
+    tablet: "1025px",
   },
 
   colors: {

@@ -1,13 +1,13 @@
 import { ThemeProvider } from "styled-components";
 
-import Home from "./pages/Home";
+import AppRoutes from "./routes";
 import { GlobalStyle, theme } from "./theme";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Home />
+      <AppRoutes />
     </ThemeProvider>
   );
 }
