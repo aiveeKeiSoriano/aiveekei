@@ -59,6 +59,7 @@ export default function NavDrawer({ close, isOpen, items }: NavDrawerProps) {
     <Wrapper $open={isOpen}>
       <Header>
         <CloseButton
+          alt="close"
           height="60px"
           icon={CloseIcon}
           onClick={close}

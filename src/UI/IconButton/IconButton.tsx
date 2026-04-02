@@ -11,7 +11,9 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 const Img = styled(Image)`
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 
   &:active {
     filter: brightness(0.5);
@@ -42,6 +44,7 @@ const Img = styled(Image)`
 `;
 
 interface IconButtonProps {
+  alt: string;
   height: string;
   icon: ImageSources | string;
   onClick?: () => void;
@@ -53,11 +56,12 @@ export default function IconButton({
   icon,
   onClick,
   width,
+  alt,
   ...props
 }: IconButtonProps) {
   return (
     <Wrapper onClick={onClick} {...props}>
-      <Img height={height} src={icon} width={width} />
+      <Img alt={alt} height={height} src={icon} width={width} />
     </Wrapper>
   );
 }

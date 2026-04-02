@@ -25,5 +25,5 @@ export default function Logo() {
       { src: LogoWebp, type: "image/webp" },
     ],
   } satisfies ImageSources;
-  return <Wrapper height="60px" icon={LOGO_SOURCES} width="60px" />;
+  return <Wrapper alt="logo" height="60px" icon={LOGO_SOURCES} width="60px" />;
 }

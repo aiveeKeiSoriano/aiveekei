@@ -51,6 +51,7 @@ export default function Nav() {
         ))}
       </Items>
       <Menu
+        alt="menu"
         height="60px"
         icon={MenuIcon}
         onClick={() => setDrawerOpen(!isDrawerOpen)}
