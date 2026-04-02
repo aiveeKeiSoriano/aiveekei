@@ -2,46 +2,46 @@ import 'styled-components';
 
 declare module "styled-components" {
   export interface DefaultTheme {
+    breakpoints: {
+      desktop: string;
+      mobile: string;
+      tablet: string;
+    };
     colors: {
-      text: string;
-      textSecondary: string;
       bg: string;
+      border: string;
       primary: string;
       secondary: string;
       tertiary: string;
-      border: string;
+      text: string;
+      textSecondary: string;
     };
     fonts: {
-      sans: string;
       heading: string;
       mono: string;
-    };
-    shadows: {
-      default: string;
+      sans: string;
     };
     fontSizes: {
       base: string;
       baseMobile: string;
+      code: string;
       h1: string;
       h1Mobile: string;
       h2: string;
       h2Mobile: string;
-      code: string;
-    };
-    lineHeights: {
-      base: string;
-      h2: string;
-      code: string;
     };
     letterSpacing: {
       base: string;
       h1: string;
       h2: string;
     };
-    breakpoints: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
+    lineHeights: {
+      base: string;
+      code: string;
+      h2: string;
+    };
+    shadows: {
+      default: string;
     };
   }
 }

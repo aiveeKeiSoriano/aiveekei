@@ -1,5 +1,7 @@
 import styled from "styled-components";
+
 import type { ImageSources } from "../Image/Image";
+
 import Image from "../Image/Image";
 
 const Wrapper = styled.div`
@@ -40,22 +42,22 @@ const Img = styled(Image)`
 `;
 
 interface IconButtonProps {
-  icon: string | ImageSources;
   height: string;
-  width: string;
+  icon: ImageSources | string;
   onClick?: () => void;
+  width: string;
 }
 
 export default function IconButton({
-  icon,
   height,
-  width,
+  icon,
   onClick,
+  width,
   ...props
 }: IconButtonProps) {
   return (
     <Wrapper onClick={onClick} {...props}>
-      <Img src={icon} height={height} width={width} />
+      <Img height={height} src={icon} width={width} />
     </Wrapper>
   );
 }

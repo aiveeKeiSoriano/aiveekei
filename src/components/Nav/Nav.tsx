@@ -1,10 +1,11 @@
+import { useState } from "react";
 import styled from "styled-components";
+
+import MenuIcon from "../../assets/menu.svg";
+import IconButton from "../../UI/IconButton/IconButton";
 import Logo from "../Logo/Logo";
 import NavButton from "../NavButton/NavButton";
 import NavDrawer from "../NavDrawer/NavDrawer";
-import { useState } from "react";
-import IconButton from "../../UI/IconButton/IconButton";
-import MenuIcon from "../../assets/menu.svg";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -50,14 +51,14 @@ export default function Nav() {
         ))}
       </Items>
       <Menu
+        height="60px"
         icon={MenuIcon}
         onClick={() => setDrawerOpen(!isDrawerOpen)}
         width="60px"
-        height="60px"
       />
       <NavDrawer
-        isOpen={isDrawerOpen}
         close={() => setDrawerOpen(!isDrawerOpen)}
+        isOpen={isDrawerOpen}
         items={NAV_ITEMS}
       />
     </Wrapper>

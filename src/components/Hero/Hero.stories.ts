@@ -1,8 +1,8 @@
 import Hero from "./Hero";
 
 export default {
-  title: "Hero",
   component: Hero,
+  title: "Hero",
 };
 
 export const Default = {

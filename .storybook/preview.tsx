@@ -1,8 +1,11 @@
-import React from "react";
 import "../src/index.css";
-import { MINIMAL_VIEWPORTS } from "storybook/viewport";
+
 import type { Preview } from "@storybook/react-vite";
+
+import React from "react";
+import { MINIMAL_VIEWPORTS } from "storybook/viewport";
 import { ThemeProvider } from "styled-components";
+
 import { GlobalStyle, theme } from "../src/theme";
 
 const preview: Preview = {

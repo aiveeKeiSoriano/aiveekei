@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+
 import Target from "../../assets/target.svg";
 import useMousePosition from "../../utils/useMousePosition";
 
@@ -6,7 +7,7 @@ export default function CrossHair() {
   const imgRef = useRef<HTMLImageElement>(null);
   const mousePosition = useMousePosition();
   const rafRef = useRef<number>(0);
-  const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const idleTimer = useRef<null | ReturnType<typeof setTimeout>>(null);
   const isIdle = useRef(false);
 
   useEffect(() => {
@@ -54,21 +55,21 @@ export default function CrossHair() {
 
   return (
     <img
+      alt="crosshair"
       ref={imgRef}
       src={Target}
-      alt="crosshair"
       style={{
-        width: 32,
+        borderRadius: "100%",
         height: 32,
+        left: 0,
+        pointerEvents: "none",
         position: "fixed",
         top: 0,
-        left: 0,
-        borderRadius: "100%",
-        pointerEvents: "none",
-        userSelect: "none",
-        zIndex: 10000,
-        willChange: "transform",
         transition: "opacity 0.15s ease",
+        userSelect: "none",
+        width: 32,
+        willChange: "transform",
+        zIndex: 10000,
       }}
     />
   );

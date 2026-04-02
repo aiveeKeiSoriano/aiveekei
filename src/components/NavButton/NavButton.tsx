@@ -37,12 +37,12 @@ const Button = styled.button<ButtonProps>`
 `
 
 interface NavButtonProps {
-    label: string;
     isActive?: boolean;
     isForMobile?: boolean;
+    label: string;
 }
 
-export default function NavButton({label, isActive, isForMobile} : NavButtonProps) {
+export default function NavButton({isActive, isForMobile, label} : NavButtonProps) {
     return (
         <Button $isActive={isActive} $isForMobile={isForMobile}>{label}</Button>
     )

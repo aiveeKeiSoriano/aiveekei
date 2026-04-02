@@ -1,12 +1,12 @@
-import Image from "./Image";
+import HeroAvif from "../../assets/Hero/Hero.avif";
 import HeroPng from "../../assets/Hero/Hero.png";
 import HeroWebp from "../../assets/Hero/Hero.webp";
-import HeroAvif from "../../assets/Hero/Hero.avif";
 import MenuIcon from "../../assets/menu.svg";
+import Image from "./Image";
 
 export default {
-  title: "Image",
   component: Image,
+  title: "Image",
 };
 
 export const MultipleSources = {

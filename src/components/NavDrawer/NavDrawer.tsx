@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import IconButton from "../../UI/IconButton/IconButton";
+
 import CloseIcon from "../../assets/close.svg";
+import IconButton from "../../UI/IconButton/IconButton";
 import NavButton from "../NavButton/NavButton";
 
 interface WrapperProps {
@@ -48,25 +49,25 @@ const Items = styled.div`
 `;
 
 interface NavDrawerProps {
-  isOpen: boolean;
   close: () => void;
+  isOpen: boolean;
   items: string[];
 }
 
-export default function NavDrawer({ isOpen, close, items }: NavDrawerProps) {
+export default function NavDrawer({ close, isOpen, items }: NavDrawerProps) {
   return (
     <Wrapper $open={isOpen}>
       <Header>
         <CloseButton
-          icon={CloseIcon}
           height="60px"
-          width="60px"
+          icon={CloseIcon}
           onClick={close}
+          width="60px"
         />
       </Header>
       <Items>
         {items.map((item) => (
-          <NavButton key={item} label={item} isForMobile />
+          <NavButton isForMobile key={item} label={item} />
         ))}
       </Items>
     </Wrapper>

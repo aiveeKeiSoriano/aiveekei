@@ -1,13 +1,13 @@
 import { fn } from "storybook/test";
 
-import IconButton from "./IconButton";
 import CloseIcon from "../../assets/close.svg";
 import MenuIcon from "../../assets/menu.svg";
+import IconButton from "./IconButton";
 
 export default {
-  title: "IconButton",
+  args: { height: "60px", onClick: fn(), width: "60px" },
   component: IconButton,
-  args: { onClick: fn(), width: "60px", height: "60px" },
+  title: "IconButton",
 };
 
 export const Close = {

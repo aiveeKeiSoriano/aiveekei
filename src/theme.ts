@@ -1,42 +1,38 @@
-import { createGlobalStyle } from "styled-components";
 import type { DefaultTheme } from "styled-components";
 
+import { createGlobalStyle } from "styled-components";
+
 export const theme: DefaultTheme = {
+  breakpoints: {
+    desktop: "1200px",
+    mobile: "480px",
+    tablet: "1024px",
+  },
+
   colors: {
-    text: "#000000",
-    textSecondary: "#fff",
     bg: "#fff",
+    border: "#000000",
     primary: "#c4c4c4",
     secondary: "#000000",
     tertiary: "#737373",
-    border: "#000000",
+    text: "#000000",
+    textSecondary: "#fff",
   },
 
   fonts: {
-    sans: "'Baloo Thambi 2', system-ui, 'Segoe UI', Roboto, sans-serif",
     heading: "'Baloo Thambi 2', system-ui, 'Segoe UI', Roboto, sans-serif",
     mono: "ui-monospace, Consolas, monospace",
-  },
-
-  shadows: {
-    default:
-      "rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px",
+    sans: "'Baloo Thambi 2', system-ui, 'Segoe UI', Roboto, sans-serif",
   },
 
   fontSizes: {
     base: "18px",
     baseMobile: "16px",
+    code: "15px",
     h1: "56px",
     h1Mobile: "36px",
     h2: "24px",
     h2Mobile: "20px",
-    code: "15px",
-  },
-
-  lineHeights: {
-    base: "145%",
-    h2: "118%",
-    code: "135%",
   },
 
   letterSpacing: {
@@ -45,10 +41,15 @@ export const theme: DefaultTheme = {
     h2: "-0.24px",
   },
 
-  breakpoints: {
-    mobile: "480px",
-    tablet: "1024px",
-    desktop: "1200px",
+  lineHeights: {
+    base: "145%",
+    code: "135%",
+    h2: "118%",
+  },
+
+  shadows: {
+    default:
+      "rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px",
   },
 };
 

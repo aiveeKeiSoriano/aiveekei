@@ -1,9 +1,11 @@
 import styled from "styled-components";
+
+import type { ImageSources } from "../../UI/Image/Image";
+
+import LogoAvif from "../../assets/Logo/logo.avif";
 import LogoPng from "../../assets/Logo/logo.png";
 import LogoWebp from "../../assets/Logo/logo.webp";
-import LogoAvif from "../../assets/Logo/logo.avif";
 import IconButton from "../../UI/IconButton/IconButton";
-import type { ImageSources } from "../../UI/Image/Image";
 
 const Wrapper = styled(IconButton)`
   display: flex;
@@ -23,5 +25,5 @@ export default function Logo() {
       { src: LogoWebp, type: "image/webp" },
     ],
   } satisfies ImageSources;
-  return <Wrapper icon={LOGO_SOURCES} height="60px" width="60px" />;
+  return <Wrapper height="60px" icon={LOGO_SOURCES} width="60px" />;
 }

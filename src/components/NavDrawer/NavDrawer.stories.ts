@@ -1,14 +1,14 @@
 import NavDrawer from "./NavDrawer";
 
 export default {
-  title: "NavDrawer",
   component: NavDrawer,
+  globals: {
+    viewport: { isRotated: false, value: "tablet" },
+  },
   parameters: {
     layout: "fullscreen",
   },
-  globals: {
-    viewport: { value: "tablet", isRotated: false },
-  },
+  title: "NavDrawer",
 };
 
 export const Open = {

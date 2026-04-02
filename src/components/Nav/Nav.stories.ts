@@ -1,11 +1,11 @@
 import Nav from "./Nav";
 
 export default {
-  title: "Nav",
   component: Nav,
   parameters: {
     layout: "fullscreen",
   },
+  title: "Nav",
 };
 
 export const Default = {

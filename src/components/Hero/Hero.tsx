@@ -1,10 +1,12 @@
 import styled from "styled-components";
+
+import type { ImageSources } from "../../UI/Image/Image";
+
+import HeroAvif from "../../assets/Hero/Hero.avif";
 import HeroPng from "../../assets/Hero/Hero.png";
 import HeroWebp from "../../assets/Hero/Hero.webp";
-import HeroAvif from "../../assets/Hero/Hero.avif";
-import ReactIconSVG from "./ReactIconSVG";
-import type { ImageSources } from "../../UI/Image/Image";
 import Image from "../../UI/Image/Image";
+import ReactIconSVG from "./ReactIconSVG";
 
 const Container = styled.div`
   display: flex;
@@ -100,7 +102,7 @@ export default function Hero() {
         </Subtext>
       </TextContainer>
       <ImgContainer>
-        <Img src={HERO_SOURCES} alt="hero" />
+        <Img alt="hero" src={HERO_SOURCES} />
         <ReactIconSVG />
       </ImgContainer>
     </Container>

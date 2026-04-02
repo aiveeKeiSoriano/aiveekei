@@ -1,8 +1,8 @@
 import CrossHair from "./CrossHair";
 
 export default {
-  title: "CrossHair",
   component: CrossHair,
+  title: "CrossHair",
 };
 
 export const Default = {

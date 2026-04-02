@@ -1,20 +1,20 @@
 import NavButton from "./NavButton";
 
 export default {
-  title: "NavButton",
   component: NavButton,
+  title: "NavButton",
 };
 
 export const Default = {
   args: {
-    label: "Projects",
     isActive: false,
+    label: "Projects",
   },
 };
 
 export const Active = {
   args: {
-    label: "Projects",
     isActive: true,
+    label: "Projects",
   },
 };

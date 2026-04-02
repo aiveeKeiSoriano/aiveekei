@@ -3,9 +3,10 @@ export type ImageSources = {
   sources?: { src: string; type: string }[];
 };
 type ImageProps = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src"> & {
-  src: string | ImageSources;
+  alt: string;
+  src: ImageSources | string;
 };
-export default function Image({ src, ...props }: ImageProps) {
+export default function Image({ src, alt, ...props }: ImageProps) {
   const isMultiSource = typeof src === "object";
   if (isMultiSource) {
     return (
@@ -13,9 +14,9 @@ export default function Image({ src, ...props }: ImageProps) {
         {src.sources?.map(({ src, type }) => (
           <source key={type} srcSet={src} type={type} />
         ))}
-        <img src={src.fallback} {...props} />
+        <img alt={alt} src={src.fallback} {...props} />
       </picture>
     );
   }
-  return <img src={src} {...props} />;
+  return <img alt={alt} src={src} {...props} />;
 }
