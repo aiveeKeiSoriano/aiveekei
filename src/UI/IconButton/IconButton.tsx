@@ -15,31 +15,13 @@ const Img = styled(Image)`
     filter 0.3s ease,
     transform 0.3s ease;
 
+  &:hover {
+    filter: brightness(0.8);
+  }
+
   &:active {
     filter: brightness(0.5);
     transform: scale(0.9);
-  }
-
-  &:focus {
-    animation: bounce 0.4s ease;
-  }
-
-  @keyframes bounce {
-    0% {
-      transform: scale(1);
-    }
-    30% {
-      transform: scale(0.85);
-    }
-    60% {
-      transform: scale(1.1);
-    }
-    80% {
-      transform: scale(0.95);
-    }
-    100% {
-      transform: scale(1);
-    }
   }
 `;
 

@@ -6,7 +6,9 @@ import type { ImageSources } from "../../UI/Image/Image";
 import HeroAvif from "../../assets/Hero/Hero.avif";
 import HeroPng from "../../assets/Hero/Hero.png";
 import HeroWebp from "../../assets/Hero/Hero.webp";
+import EmailIcon from "../../assets/mail.svg";
 import Button from "../../UI/Button/Button";
+import CopyButton from "../../UI/CopyButton/CopyButton";
 import Image from "../../UI/Image/Image";
 import ReactIconSVG from "./ReactIconSVG";
 
@@ -98,9 +100,14 @@ const Img = styled(Image)`
   }
 `;
 
-const EmailLink = styled.a`
+const Action = styled.div`
   margin-top: 1em;
   align-self: flex-start;
+  display: flex;
+`;
+
+const EmailLink = styled.a`
+  text-decoration: none;
 `;
 
 export default function Hero() {
@@ -112,11 +119,6 @@ export default function Hero() {
     ],
   } satisfies ImageSources;
 
-  // const handleEmailBtn = (event: React.MouseEvent<HTMLAnchorElement>) => {
-  //   window.location.href = "mailto:aiveekei@gmail.com";
-  //   event.preventDefault();
-  // };
-
   return (
     <Container>
       <TextContainer>
@@ -125,9 +127,12 @@ export default function Hero() {
         <Subtext>
           I'm a <b>web developer</b> from the Philippines.
         </Subtext>
-        <EmailLink href="mailto:aiveekei@gmail.com">
-          <Button label="Connect with me" />
-        </EmailLink>
+        <Action>
+          <EmailLink href="mailto:aiveekei@gmail.com">
+            <Button icon={EmailIcon} label="aiveekei@gmail.com" />
+          </EmailLink>
+          <CopyButton text="aiveekei@gmail.com" />
+        </Action>
       </TextContainer>
       <ImgContainer>
         <Img alt="hero" src={HERO_SOURCES} />
