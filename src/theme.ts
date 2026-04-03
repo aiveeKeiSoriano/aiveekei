@@ -7,6 +7,7 @@ export const theme: DefaultTheme = {
     desktop: "1200px",
     mobile: "480px",
     tablet: "1025px",
+    tablet2: "782px",
   },
 
   colors: {

@@ -31,9 +31,7 @@ const preview: Preview = {
     (Story) => (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <div id="root">
-          <Story />
-        </div>
+        <Story />
       </ThemeProvider>
     ),
   ],

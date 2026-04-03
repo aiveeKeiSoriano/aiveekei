@@ -33,21 +33,33 @@ const Wrapper = styled.button`
 `;
 
 interface ButtonProps {
+  children?: React.ReactNode;
   icon?: string;
+  iconPosition?: "left" | "right";
   label: string;
   onClick?: () => void;
 }
 
 export default function Button({
+  children,
   icon,
+  iconPosition,
   label,
   onClick,
   ...props
 }: ButtonProps) {
+  const isLeft = iconPosition === "left" || !iconPosition;
+  const isRight = iconPosition === "right";
+
   return (
     <Wrapper onClick={onClick} {...props}>
-      {icon && <Image alt={label} height="24px" src={icon} width="24px" />}
-      {label}
+      {icon && isLeft && (
+        <Image alt={label} height="24px" src={icon} width="24px" />
+      )}
+      {children || label}
+      {icon && isRight && (
+        <Image alt={label} height="24px" src={icon} width="24px" />
+      )}
     </Wrapper>
   );
 }

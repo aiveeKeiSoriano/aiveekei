@@ -2,7 +2,7 @@ import NavButton from "./NavButton";
 
 export default {
   component: NavButton,
-  title: "NavButton",
+  title: "Nav/NavButton",
 };
 
 export const Default = {

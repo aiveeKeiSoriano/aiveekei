@@ -8,7 +8,7 @@ export default {
   parameters: {
     layout: "fullscreen",
   },
-  title: "NavDrawer",
+  title: "Nav/NavDrawer",
 };
 
 export const Open = {

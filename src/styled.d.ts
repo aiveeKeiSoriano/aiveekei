@@ -1,4 +1,4 @@
-import 'styled-components';
+import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -6,6 +6,7 @@ declare module "styled-components" {
       desktop: string;
       mobile: string;
       tablet: string;
+      tablet2: string;
     };
     colors: {
       bg: string;

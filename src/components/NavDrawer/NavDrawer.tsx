@@ -42,7 +42,7 @@ const CloseButton = styled(IconButton)`
   padding: 20px 20px 16px;
 `;
 
-const Items = styled.div`
+const Items = styled.nav`
   display: flex;
   flex-direction: column;
   flex: 1;

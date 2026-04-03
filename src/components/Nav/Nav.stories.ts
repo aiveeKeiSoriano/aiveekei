@@ -5,7 +5,7 @@ export default {
   parameters: {
     layout: "fullscreen",
   },
-  title: "Nav",
+  title: "Nav/Nav",
 };
 
 export const Default = {

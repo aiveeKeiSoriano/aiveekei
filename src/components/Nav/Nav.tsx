@@ -7,7 +7,7 @@ import Logo from "../Logo/Logo";
 import NavButton from "../NavButton/NavButton";
 import NavDrawer from "../NavDrawer/NavDrawer";
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   width: 100%;
   background-color: ${(props) => props.theme.colors.primary};
   border-bottom: 4px solid ${(props) => props.theme.colors.border};
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Items = styled.div`
+const Items = styled.nav`
   display: none;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {

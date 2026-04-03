@@ -21,14 +21,14 @@ const Container = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     justify-content: center;
     flex-direction: column;
-    padding: 5em 5em 0;
+    padding: 5em 5em;
     gap: 3em;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     justify-content: center;
     flex-direction: column;
-    padding: 2em 2em 0;
+    padding: 2em 2em 5em;
     gap: 2em;
   }
 `;
@@ -43,7 +43,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const Text = styled.p`
+const Text = styled.h1`
   margin-top: 0px;
   margin-bottom: 12px;
   font-size: 6rem;
@@ -62,7 +62,7 @@ const Text = styled.p`
   }
 `;
 
-const Subtext = styled.p`
+const Subtext = styled.h2`
   font-size: 2rem;
   line-height: 2.5rem;
   text-align: left;
