@@ -29,7 +29,7 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   position: absolute;
-  top: -45px;
+  top: -33px;
   width: 100%;
   flex-wrap: wrap;
 `;
@@ -49,7 +49,7 @@ const LinkButton = styled(Button)`
   font-size: 1.2em;
   justify-content: space-between;
   width: 100%;
-  padding: 1em 1.5em;
+  padding: 0.5em 1.5em;
 
   & * {
     transition: all 0.5s ease;
