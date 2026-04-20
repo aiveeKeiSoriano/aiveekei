@@ -16,7 +16,7 @@ const Wrapper = styled.div<WrapperProps>`
   width: 450px;
   max-width: 100dvw;
   transform: ${(props) => (props.$open ? "translateX(0)" : "translateX(100%)")};
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
   z-index: 1000;
   display: flex;
   flex-direction: column;

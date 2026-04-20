@@ -12,8 +12,8 @@ const Wrapper = styled.div`
 `;
 const Img = styled(Image)`
   transition:
-    filter 0.3s ease,
-    transform 0.3s ease;
+    filter 0.5s ease,
+    transform 0.5s ease;
 
   &:hover {
     filter: brightness(0.8);

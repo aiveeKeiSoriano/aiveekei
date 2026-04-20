@@ -1,7 +1,22 @@
 import { useEffect, useRef } from "react";
+import styled from "styled-components";
 
 import Target from "../../assets/target.svg";
-import useMousePosition from "../../utils/useMousePosition";
+import useMousePosition from "../../hooks/useMousePosition";
+
+const Image = styled.img`
+  border-radius: 100%;
+  height: 32px;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.15s ease;
+  user-select: none;
+  width: 32px;
+  will-change: transform;
+  z-index: 10000;
+`;
 
 export default function CrossHair() {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -53,24 +68,5 @@ export default function CrossHair() {
     };
   }, []);
 
-  return (
-    <img
-      alt="crosshair"
-      ref={imgRef}
-      src={Target}
-      style={{
-        borderRadius: "100%",
-        height: 32,
-        left: 0,
-        pointerEvents: "none",
-        position: "fixed",
-        top: 0,
-        transition: "opacity 0.15s ease",
-        userSelect: "none",
-        width: 32,
-        willChange: "transform",
-        zIndex: 10000,
-      }}
-    />
-  );
+  return <Image alt="crosshair" ref={imgRef} src={Target} />;
 }

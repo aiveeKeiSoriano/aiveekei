@@ -2,6 +2,9 @@ import type { DefaultTheme } from "styled-components";
 
 import { createGlobalStyle } from "styled-components";
 
+import Pattern from "./assets/pattern.svg";
+import formatCssUrl from "./utils/formatBackgroundURL";
+
 export const theme: DefaultTheme = {
   breakpoints: {
     desktop: "1200px",
@@ -58,6 +61,9 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     color-scheme: light dark;
+    background-image: ${formatCssUrl(Pattern)};
+    background-position: 0px 0px;
+    background-size: 6px;
   }
 
   *,

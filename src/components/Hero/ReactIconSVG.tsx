@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import styled from "styled-components";
 
-import useMousePosition from "../../utils/useMousePosition";
+import useMousePosition from "../../hooks/useMousePosition";
 
 const ReactIcon = styled.svg`
   position: absolute;
