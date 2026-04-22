@@ -32,6 +32,7 @@ export default defineConfig([
     rules: {
       "unused-imports/no-unused-imports": "error",
       "perfectionist/sort-objects": "off",
+      "perfectionist/sort-union-types": "off",
       "@typescript-eslint/no-explicit-any": "error",
     },
   },

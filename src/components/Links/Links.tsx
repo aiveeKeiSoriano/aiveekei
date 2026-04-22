@@ -30,15 +30,21 @@ const Wrapper = styled.section`
   justify-content: center;
   position: absolute;
   top: -33px;
+  left: 0;
   width: 100%;
   flex-wrap: wrap;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
+    position: relative;
+    top: 0;
+  }
 `;
 
 const Link = styled.a`
   text-decoration: none;
   width: 250px;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet2}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     width: 100%;
   }
 `;

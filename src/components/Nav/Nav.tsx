@@ -15,7 +15,7 @@ const Wrapper = styled.header`
   height: 96px;
   justify-content: space-between;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     justify-content: flex-start;
   }
 `;
@@ -23,7 +23,7 @@ const Wrapper = styled.header`
 const Items = styled.nav`
   display: none;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     display: flex;
   }
 `;
@@ -32,7 +32,7 @@ const Menu = styled(IconButton)`
   align-self: flex-end;
   padding: 20px 20px 16px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     display: none;
   }
 `;

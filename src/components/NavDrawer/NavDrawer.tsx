@@ -23,7 +23,7 @@ const Wrapper = styled.div<WrapperProps>`
   border-left: 4px solid ${(props) => props.theme.colors.border};
   background-color: ${(props) => props.theme.colors.bg};
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     display: none;
   }
 `;

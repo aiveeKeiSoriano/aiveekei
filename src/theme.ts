@@ -7,10 +7,10 @@ import formatCssUrl from "./utils/formatBackgroundURL";
 
 export const theme: DefaultTheme = {
   breakpoints: {
-    desktop: "1200px",
-    mobile: "480px",
-    tablet: "1025px",
-    tablet2: "782px",
+    l: "1200px",
+    m: "1025px",
+    s: "782px",
+    xs: "480px",
   },
 
   colors: {
@@ -27,6 +27,7 @@ export const theme: DefaultTheme = {
     heading: "'Baloo Thambi 2', system-ui, 'Segoe UI', Roboto, sans-serif",
     mono: "ui-monospace, Consolas, monospace",
     sans: "'Baloo Thambi 2', system-ui, 'Segoe UI', Roboto, sans-serif",
+    display: "'Bungee', 'Courier New', 'Lucida Console', monospace",
   },
 
   fontSizes: {
@@ -83,7 +84,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
       font-size: ${({ theme }) => theme.fontSizes.baseMobile};
     }
   }
@@ -93,7 +94,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    width: ${({ theme }) => theme.breakpoints.desktop};
+    width: ${({ theme }) => theme.breakpoints.l};
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -118,7 +119,7 @@ export const GlobalStyle = createGlobalStyle`
     letter-spacing: ${({ theme }) => theme.letterSpacing.h1};
     margin: 32px 0;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
       font-size: ${({ theme }) => theme.fontSizes.h1Mobile};
       margin: 20px 0;
     }
@@ -130,7 +131,7 @@ export const GlobalStyle = createGlobalStyle`
     letter-spacing: ${({ theme }) => theme.letterSpacing.h2};
     margin: 0 0 8px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
       font-size: ${({ theme }) => theme.fontSizes.h2Mobile};
     }
   }
