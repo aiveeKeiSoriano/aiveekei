@@ -33,6 +33,7 @@ const Wrapper = styled.section`
   left: 0;
   width: 100%;
   flex-wrap: wrap;
+  z-index: 1;
 
   @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     position: relative;
@@ -62,7 +63,6 @@ const LinkButton = styled(Button)`
   }
 
   &:hover {
-    background: none;
     background-color: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.text};
   }

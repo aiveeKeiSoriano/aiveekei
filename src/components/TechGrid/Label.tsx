@@ -5,8 +5,10 @@ interface WrapperProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
-  opacity: ${(props) => (props.$isVisible ? 1 : 0)};
-  visibility: ${(props) => (props.$isVisible ? "visible" : "hidden")};
+  /* opacity: ${(props) => (props.$isVisible ? 1 : 0)};
+  visibility: ${(props) => (props.$isVisible ? "visible" : "hidden")}; */
+  opacity: 1;
+  visibility: visible;
   pointer-events: none;
   justify-content: center;
   align-items: center;
@@ -47,6 +49,33 @@ const Label = styled.div`
   }
 `;
 
+/**
+ * TextContainer is for hiding the parts of the text while
+ * it is transitioning to appear
+ */
+const TextContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
+`;
+
+interface TextProps {
+  $isVisible: boolean;
+}
+
+const Text = styled.div<TextProps>`
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform-origin: 0% 50%;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+
+  opacity: ${(props) => (props.$isVisible ? 1 : 0)};
+  transform: ${(props) =>
+    props.$isVisible ? "translate(0px, 0px)" : "translate(0%, 100%)"};
+`;
+
 interface TechLabelProps {
   isVisible: boolean;
   name: string | null;
@@ -55,7 +84,11 @@ interface TechLabelProps {
 export default function TechLabel({ isVisible, name }: TechLabelProps) {
   return (
     <Wrapper $isVisible={isVisible}>
-      <Label>{name}</Label>
+      <Label>
+        <TextContainer>
+          <Text $isVisible={isVisible}>{name}</Text>
+        </TextContainer>
+      </Label>
     </Wrapper>
   );
 }

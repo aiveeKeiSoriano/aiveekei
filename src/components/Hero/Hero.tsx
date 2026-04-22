@@ -17,6 +17,7 @@ const Container = styled.div`
   padding: 5em;
   gap: 2em;
   user-select: none !important;
+  background-color: ${(props) => props.theme.colors.bg};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
     justify-content: center;

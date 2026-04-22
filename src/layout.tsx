@@ -1,12 +1,16 @@
 import { Outlet } from "react-router";
 import styled from "styled-components";
 
+import Tile from "./assets/tile.svg";
 import CrossHair from "./components/CrossHair/CrossHair";
 import Nav from "./components/Nav/Nav";
+import formatCssUrl from "./utils/formatBackgroundURL";
 
 const Wrapper = styled.div`
   height: 100vh;
   overflow-y: hidden;
+  background-image: ${formatCssUrl(Tile)};
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 
 const Content = styled.div`
@@ -15,7 +19,6 @@ const Content = styled.div`
   flex-direction: column;
   gap: 25px;
   flex-grow: 1;
-  background-color: ${({ theme }) => theme.colors.bg};
   overflow-y: auto;
 
   &::-webkit-scrollbar {

@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Frame = styled.div`
   z-index: 2;
-  outline-offset: -1px;
+  outline-offset: -2px;
   pointer-events: none;
-  outline-width: 1px;
+  outline-width: 2px;
   outline-style: solid;
   outline-color: rgba(255, 255, 255, 0.2);
   outline-color: rgba(255, 255, 255, 0.2);
@@ -19,8 +19,33 @@ export const FrameCorner = styled.div`
   width: 0.75em;
   height: 0.75em;
   position: absolute;
-  border: 0 solid rgba(255, 255, 255, 0.7);
+  border: 0 solid rgba(255, 255, 255);
   pointer-events: none;
+`;
+
+export const FrameCornerTL = styled(FrameCorner)`
+  top: -2px;
+  left: -2px;
+  border-top-width: 5px;
+  border-left-width: 5px;
+`;
+export const FrameCornerTR = styled(FrameCorner)`
+  top: -2px;
+  right: -2px;
+  border-top-width: 5px;
+  border-right-width: 5px;
+`;
+export const FrameCornerBL = styled(FrameCorner)`
+  bottom: -2px;
+  left: -2px;
+  border-bottom-width: 5px;
+  border-left-width: 5px;
+`;
+export const FrameCornerBR = styled(FrameCorner)`
+  bottom: -2px;
+  right: -2px;
+  border-bottom-width: 5px;
+  border-right-width: 5px;
 `;
 
 export const FrameBorder = styled.div`
@@ -32,34 +57,10 @@ export const FrameBorder = styled.div`
   position: absolute;
 `;
 
-export const FrameCornerTL = styled(FrameCorner)`
-  top: -1px;
-  left: -1px;
-  border-top-width: 3px;
-  border-left-width: 3px;
-`;
-export const FrameCornerTR = styled(FrameCorner)`
-  top: -1px;
-  right: -1px;
-  border-top-width: 3px;
-  border-right-width: 3px;
-`;
-export const FrameCornerBL = styled(FrameCorner)`
-  bottom: -1px;
-  left: -1px;
-  border-bottom-width: 3px;
-  border-left-width: 3px;
-`;
-export const FrameCornerBR = styled(FrameCorner)`
-  bottom: -1px;
-  right: -1px;
-  border-bottom-width: 3px;
-  border-right-width: 3px;
-`;
 export const FrameBorderT = styled(FrameBorder)`
   transform-origin: 0 0;
   width: 100%;
-  height: 1px;
+  height: 2px;
   top: 0;
   left: 0;
   transform: scaleX(0);
@@ -68,14 +69,14 @@ export const FrameBorderT = styled(FrameBorder)`
 export const FrameBorderB = styled(FrameBorder)`
   transform-origin: 100%;
   width: 100%;
-  height: 1px;
+  height: 2px;
   bottom: 0;
   left: 0;
   transform: scaleX(0);
   transition: transform 0.5s cubic-bezier(0.625, 0.05, 0, 1);
 `;
 export const FrameBorderL = styled(FrameBorder)`
-  width: 1px;
+  width: 2px;
   height: 100%;
   top: 0;
   left: 0;
@@ -84,7 +85,7 @@ export const FrameBorderL = styled(FrameBorder)`
 `;
 export const FrameBorderR = styled(FrameBorder)`
   transform-origin: 50% 0;
-  width: 1px;
+  width: 2px;
   height: 100%;
   top: 0;
   right: 0;

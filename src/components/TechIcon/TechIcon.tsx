@@ -19,8 +19,8 @@ import {
  * The TechIcon component are absolute components positioned based on
  * the hard-coded coordinates of each item that can be found in '/TechGrid/data'
  *
- * The Grid has a set height of 90vh all the time so each item has a height of
- * 90vh divided by the number of total rows (also hard-coded in '/TechGrid/data')
+ * The Grid has a set height of 85vh all the time so each item has a height of
+ * 85vh divided by the number of total rows (also hard-coded in '/TechGrid/data')
  *
  * Same goes for the width of each item which is 100% divided by the number of total
  * columns
@@ -39,9 +39,9 @@ const positionItem = (bp: Breakpoint, position: GridPosition) => {
 
   return `
     width: calc(100% / ${cols});
-    height: calc(90vh / ${rows});
+    height: calc(85vh / ${rows});
     left: calc((100% / ${cols} - 1px) * ${x});
-    top: calc((90vh / ${rows} - 1px) * ${y});
+    top: calc((85vh / ${rows} - 1px) * ${y});
   `;
 };
 
