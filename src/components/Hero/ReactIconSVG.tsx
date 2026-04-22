@@ -1,7 +1,16 @@
+/**
+ * This component includes the center dot on the React icon that
+ * follows the cursor direction
+ *
+ * It uses requestAnimationFrame for smooth animation, and to avoid
+ * React re-renders
+ *
+ */
+
 import { useCallback, useEffect, useRef } from "react";
 import styled from "styled-components";
 
-import useMousePosition from "../../utils/useMousePosition";
+import useMousePosition from "../../hooks/useMousePosition";
 
 const ReactIcon = styled.svg`
   position: absolute;
@@ -32,6 +41,15 @@ export default function ReactIconSVG() {
   const DOT_BASE_X = 256;
   const DOT_BASE_Y = 256;
 
+  /**
+   * dotPosition is needed because the position given by the dotRef is relative to
+   * the SVG coordinates, not the position on the screen.
+   *
+   * To get the position we actually want, we need to call getBoundingClientRect().
+   * But getBoundingClientRect is expensive and defeat the purpose of requestAnimationFrame if
+   * added to the loop, so it is separated and only being used when there is a scroll
+   * or resize event.
+   */
   const updateDotPosition = useCallback(() => {
     if (!dotRef.current) return;
     const rect = dotRef.current.getBoundingClientRect();
