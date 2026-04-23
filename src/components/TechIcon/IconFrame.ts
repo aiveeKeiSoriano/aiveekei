@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Frame = styled.div`
+interface FrameProps {
+  $isSelected: boolean;
+}
+
+export const Frame = styled.div<FrameProps>`
   z-index: 2;
   outline-offset: -2px;
   pointer-events: none;
@@ -13,6 +17,27 @@ export const Frame = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+
+  ${({ $isSelected }) =>
+    $isSelected &&
+    css`
+      & > {
+        ${FrameBorderT}, ${FrameBorderB} {
+          transform: scaleX(1);
+        }
+        ${FrameBorderL}, ${FrameBorderR} {
+          transform: scaleY(1);
+        }
+
+        ${FrameBorder} {
+          background-color: ${({ theme }) => theme.colors.border};
+        }
+
+        ${FrameCorner} {
+          border-color: ${({ theme }) => theme.colors.border};
+        }
+      }
+    `};
 `;
 export const FrameCorner = styled.div`
   z-index: 3;

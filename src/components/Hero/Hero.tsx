@@ -13,14 +13,17 @@ import Image from "../../UI/Image/Image";
 import ReactIconSVG from "./ReactIconSVG";
 
 const Container = styled.div`
+  min-height: 70vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5em;
   gap: 2em;
   user-select: none !important;
   background-color: ${(props) => props.theme.colors.bg};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
-    justify-content: center;
+    min-height: unset;
     flex-direction: column;
     padding: 5em 5em;
     gap: 3em;

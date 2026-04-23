@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import Image from "../../UI/Image/Image";
-import { COL, ROW } from "../TechGrid/data";
+import { COL, ROW, TOTAL_ITEMS } from "../TechGrid/Items";
 import {
   Frame,
+  FrameBorder,
   FrameBorderB,
   FrameBorderL,
   FrameBorderR,
@@ -14,13 +15,12 @@ import {
   FrameCornerTL,
   FrameCornerTR,
 } from "./IconFrame";
-
 /**
  * The TechIcon component are absolute components positioned based on
- * the hard-coded coordinates of each item that can be found in '/TechGrid/data'
+ * the coordinates of each item on the arrays that can be found in '/TechGrid/Items'
  *
  * The Grid has a set height of 85vh all the time so each item has a height of
- * 85vh divided by the number of total rows (also hard-coded in '/TechGrid/data')
+ * 85vh divided by the number of total rows
  *
  * Same goes for the width of each item which is 100% divided by the number of total
  * columns
@@ -32,22 +32,43 @@ import {
  */
 
 type Breakpoint = keyof typeof COL;
-const positionItem = (bp: Breakpoint, position: GridPosition) => {
+const positionItemOnGrid = (bp: Breakpoint, position: GridPosition) => {
   const cols = COL[bp];
   const rows = ROW[bp];
   const [x, y] = position[bp];
 
   return `
-    width: calc(100% / ${cols});
     height: calc(85vh / ${rows});
-    left: calc((100% / ${cols} - 1px) * ${x});
+    width: calc(100% / ${cols});
     top: calc((85vh / ${rows} - 1px) * ${y});
+    left: calc((100% / ${cols} - 1px) * ${x});
+  `;
+};
+
+/**
+ * When an item is selected, items becomes a list with 3 columns instead of
+ * a grid.
+ */
+
+const positionItemOnList = (index: number) => {
+  const cols = 3;
+  const rows = Math.ceil(TOTAL_ITEMS / cols);
+  const x = index % cols;
+  const y = Math.floor(index / cols);
+  return `
+    height: calc(85vh / ${rows});
+    width: 6em;
+    top: calc((85vh / ${rows} - 1px) * ${y});
+    left: calc(20% + calc(6em * ${x} - 1px));
   `;
 };
 
 type GridPosition = { l: number[]; m: number[]; s: number[]; xs: number[] };
 interface WrapperProps {
   $position: GridPosition;
+  $hasSelectedItem: boolean;
+  $isSelected: boolean;
+  $index: number;
 }
 
 const Item = styled.div<WrapperProps>`
@@ -55,23 +76,37 @@ const Item = styled.div<WrapperProps>`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primary};
-  z-index: 0;
   position: absolute;
   cursor: pointer;
+  transition-property: top, left, width, height;
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
 
-  ${({ $position }) => positionItem("l", $position)}
+  z-index: ${({ $isSelected }) => ($isSelected ? 1 : 0)};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
-    ${({ $position }) => positionItem("m", $position)}
-  }
+  ${({ $hasSelectedItem, $index }) =>
+    $hasSelectedItem &&
+    css`
+      ${positionItemOnList($index)}
+    `}
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.s}) {
-    ${({ $position }) => positionItem("s", $position)}
-  }
+  ${({ $hasSelectedItem, $position }) =>
+    !$hasSelectedItem &&
+    css`
+      ${positionItemOnGrid("l", $position)}
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    ${({ $position }) => positionItem("xs", $position)}
-  }
+      @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
+        ${positionItemOnGrid("m", $position)}
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.s}) {
+        ${positionItemOnGrid("s", $position)}
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+        ${positionItemOnGrid("xs", $position)}
+      }
+    `}
 
   &:hover {
     /**
@@ -87,7 +122,7 @@ const Item = styled.div<WrapperProps>`
       transform: scaleY(1);
     }
 
-    ${FrameBorderT}, ${FrameBorderB}, ${FrameBorderL}, ${FrameBorderR} {
+    ${FrameBorder} {
       background-color: ${({ theme }) => theme.colors.border};
     }
 
@@ -106,23 +141,35 @@ interface TechIconProps {
   name: string;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  onClick?: () => void;
   position: GridPosition;
+  isSelected: boolean;
+  hasSelectedItem: boolean;
+  index: number;
 }
 
 export default function TechIcon({
+  index,
   name,
   image,
   onMouseEnter,
   onMouseLeave,
+  onClick,
   position,
+  isSelected,
+  hasSelectedItem,
 }: TechIconProps) {
   return (
     <Item
+      $hasSelectedItem={hasSelectedItem}
       $position={position}
+      $isSelected={isSelected}
+      $index={index}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      onClick={onClick}
     >
-      <Frame>
+      <Frame $isSelected={isSelected}>
         <FrameCornerTL />
         <FrameCornerTR />
         <FrameCornerBL />

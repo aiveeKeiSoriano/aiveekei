@@ -1,29 +1,39 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
+import TechDetails from "../TechDetails/TechDetails";
 import TechIcon from "../TechIcon/TechIcon";
-import Items from "./data";
+import Items from "./Items";
 import TechLabel from "./Label";
 
 const Wrapper = styled.div`
   width: 100%;
   padding: 3rem 2rem;
   position: relative;
+  display: flex;
+  align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     padding: 1rem;
   }
 `;
 
-const Grid = styled.div`
+interface GridProps {
+  $hasSelectedItem: boolean;
+}
+
+const Grid = styled.div<GridProps>`
   position: relative;
-  width: 100%;
+  transition: width 0.8s ease;
+  width: ${({ $hasSelectedItem }) => ($hasSelectedItem ? "50%" : "100%")};
+  flex-shrink: 0;
   height: 85vh;
 `;
 
 export default function TechGrid() {
   const [isLabelVisible, setIsLabelVisible] = useState(false);
   const [hoveredName, setHoveredName] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   const enterTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const leaveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -36,7 +46,9 @@ export default function TechGrid() {
    * TimeoutRefs are used to catch the stacking of settimeouts when user quickly enter
    * and leave multiple icons
    */
-  const handleMouseEnter = (name: string) => {
+
+  const showLabel = (name: string) => {
+    if (selectedItem != null) return;
     if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
     if (hoveredName) {
       if (enterTimeoutRef.current) clearTimeout(enterTimeoutRef.current);
@@ -50,12 +62,23 @@ export default function TechGrid() {
     }
   };
 
-  const handleMouseLeave = () => {
+  const hideLabel = () => {
+    if (selectedItem != null) return;
     if (enterTimeoutRef.current) clearTimeout(enterTimeoutRef.current);
     setIsLabelVisible(false);
     leaveTimeoutRef.current = setTimeout(() => {
       setHoveredName(null);
     }, 200);
+  };
+
+  const selectItem = (index: number) => {
+    if (selectedItem === index) return;
+    setSelectedItem(index);
+    hideLabel();
+  };
+
+  const closeDetails = () => {
+    setSelectedItem(null);
   };
 
   useEffect(
@@ -68,18 +91,25 @@ export default function TechGrid() {
 
   return (
     <Wrapper>
-      <Grid>
-        {Items.map((item) => (
+      <Grid $hasSelectedItem={selectedItem != null}>
+        {Items.map((item, index) => (
           <TechIcon
+            index={index}
             image={item.image}
             key={item.name}
             name={item.name}
-            onMouseEnter={() => handleMouseEnter(item.name)}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={() => showLabel(item.name)}
+            onMouseLeave={hideLabel}
+            onClick={() => selectItem(index)}
             position={item.position}
+            isSelected={selectedItem === index}
+            hasSelectedItem={selectedItem != null}
           />
         ))}
       </Grid>
+      {selectedItem != null && (
+        <TechDetails item={Items[selectedItem ?? 0]} onClose={closeDetails} />
+      )}
       <TechLabel isVisible={isLabelVisible} name={hoveredName} />
     </Wrapper>
   );

@@ -32,9 +32,11 @@ export default defineConfig([
     rules: {
       "unused-imports/no-unused-imports": "error",
       "perfectionist/sort-objects": "off",
+      "perfectionist/sort-object-types": "off",
+      "perfectionist/sort-jsx-props": "off",
+      "perfectionist/sort-interfaces": "off",
       "perfectionist/sort-union-types": "off",
       "@typescript-eslint/no-explicit-any": "error",
-      "perfectionist/sort-jsx-props": "off",
     },
   },
   ...storybook.configs["flat/recommended"],
