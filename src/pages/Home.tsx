@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-import Pattern from "../assets/pattern.svg";
 import Hero from "../components/Hero/Hero";
 import Links from "../components/Links/Links";
-import formatCssUrl from "../utils/formatBackgroundURL";
+import TechSection from "../components/TechSection/TechSection";
 
 const Wrapper = styled.main`
   width: 100%;
@@ -15,8 +14,6 @@ const Wrapper = styled.main`
 const Bottom = styled.div`
   position: relative;
   border-top: 4px solid ${(props) => props.theme.colors.border};
-  background: ${formatCssUrl(Pattern)};
-  background-size: 6px;
   flex-grow: 1;
 `;
 
@@ -26,6 +23,7 @@ export default function Home() {
       <Hero />
       <Bottom>
         <Links />
+        <TechSection />
       </Bottom>
     </Wrapper>
   );

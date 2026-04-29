@@ -2,11 +2,11 @@ export type ImageSources = {
   fallback: string;
   sources?: { src: string; type: string }[];
 };
-type ImageProps = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src"> & {
+type ImagePropType = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src"> & {
   alt: string;
   src: ImageSources | string;
 };
-export default function Image({ src, alt, ...props }: ImageProps) {
+export default function Image({ src, alt, ...props }: ImagePropType) {
   const isMultiSource = typeof src === "object";
   if (isMultiSource) {
     return (

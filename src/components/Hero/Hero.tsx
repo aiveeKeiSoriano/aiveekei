@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import type { ImageSources } from "../../UI/Image/Image";
 
-import HeroAvif from "../../assets/Hero/Hero.avif";
-import HeroPng from "../../assets/Hero/Hero.png";
-import HeroWebp from "../../assets/Hero/Hero.webp";
+import HeroAvif from "../../assets/hero/Hero.avif";
+import HeroPng from "../../assets/hero/Hero.png";
+import HeroWebp from "../../assets/hero/Hero.webp";
 import EmailIcon from "../../assets/mail.svg";
 import Button from "../../UI/Button/Button";
 import CopyButton from "../../UI/CopyButton/CopyButton";
@@ -13,21 +13,23 @@ import Image from "../../UI/Image/Image";
 import ReactIconSVG from "./ReactIconSVG";
 
 const Container = styled.div`
+  min-height: 70vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5em;
   gap: 2em;
   user-select: none !important;
+  background-color: ${(props) => props.theme.colors.bg};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    justify-content: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
+    min-height: unset;
     flex-direction: column;
     padding: 5em 5em;
     gap: 3em;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    justify-content: center;
-    flex-direction: column;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     padding: 2em 2em 5em;
     gap: 2em;
   }
@@ -38,7 +40,7 @@ const TextContainer = styled.div`
   flex-direction: column;
   max-width: 50%;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
     max-width: 100%;
   }
 `;
@@ -53,11 +55,11 @@ const Text = styled.h1`
 
   user-select: none !important;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
     font-size: 8rem;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     font-size: 4rem;
   }
 `;
@@ -78,15 +80,14 @@ const ImgContainer = styled.div`
   width: 500px;
   height: fit-content;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
     width: 100%;
     max-width: 80%;
     padding: 0;
     align-self: center;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: 100%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     max-width: 100%;
   }
 `;
@@ -95,7 +96,7 @@ const Img = styled(Image)`
   width: 500px;
   max-width: 100%;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
     width: 100%;
   }
 `;

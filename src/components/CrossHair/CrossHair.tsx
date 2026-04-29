@@ -27,8 +27,8 @@ const Image = styled.img`
   transition: opacity 0.15s ease;
   user-select: none;
   width: 32px;
-  will-change: transform;
   z-index: 10000;
+  mix-blend-mode: difference;
 `;
 
 export default function CrossHair() {
@@ -63,7 +63,7 @@ export default function CrossHair() {
       const visible =
         Math.abs(mousePosition.current.x - window.innerWidth / 2) <= 600;
 
-      img.style.transform = `translate(${position.x}px, ${position}px) translate(-50%, -50%) scale(${scale})`;
+      img.style.transform = `translate(${position.x}px, ${position.y}px) translate(-50%, -50%) scale(${scale})`;
       img.style.opacity = visible ? "1" : "0";
 
       rafRef.current = requestAnimationFrame(loop);

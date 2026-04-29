@@ -3,10 +3,10 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     breakpoints: {
-      desktop: string;
-      mobile: string;
-      tablet: string;
-      tablet2: string;
+      l: string;
+      m: string;
+      s: string;
+      xs: string;
     };
     colors: {
       bg: string;
@@ -18,6 +18,7 @@ declare module "styled-components" {
       textSecondary: string;
     };
     fonts: {
+      display: string;
       heading: string;
       mono: string;
       sans: string;

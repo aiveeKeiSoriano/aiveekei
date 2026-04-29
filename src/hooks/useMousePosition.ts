@@ -1,3 +1,6 @@
+/**
+ * Ref is used instead of useState to avoid re-render on evry mouse move
+ */
 import { useEffect, useRef } from "react";
 
 const useMousePosition = () => {

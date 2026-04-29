@@ -11,7 +11,7 @@ import tseslint from "typescript-eslint";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(["dist"]),
+  globalIgnores(["dist", "storybook-static", "node_modules"]),
   {
     files: ["**/*.{ts,tsx}"],
     plugins: {
@@ -32,6 +32,10 @@ export default defineConfig([
     rules: {
       "unused-imports/no-unused-imports": "error",
       "perfectionist/sort-objects": "off",
+      "perfectionist/sort-object-types": "off",
+      "perfectionist/sort-jsx-props": "off",
+      "perfectionist/sort-interfaces": "off",
+      "perfectionist/sort-union-types": "off",
       "@typescript-eslint/no-explicit-any": "error",
     },
   },

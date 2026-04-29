@@ -35,7 +35,7 @@ const Wrapper = styled.button`
   }
 `;
 
-interface ButtonProps {
+interface ButtonPropType {
   children?: React.ReactNode;
   icon?: string;
   iconPosition?: "left" | "right";
@@ -50,7 +50,7 @@ export default function Button({
   label,
   onClick,
   ...props
-}: ButtonProps) {
+}: ButtonPropType) {
   const isLeft = iconPosition === "left" || !iconPosition;
   const isRight = iconPosition === "right";
 

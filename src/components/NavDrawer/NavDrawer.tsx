@@ -4,11 +4,7 @@ import CloseIcon from "../../assets/close.svg";
 import IconButton from "../../UI/IconButton/IconButton";
 import NavButton from "../NavButton/NavButton";
 
-interface WrapperProps {
-  $open: boolean;
-}
-
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.div<{ $open: boolean }>`
   position: fixed;
   top: 0;
   right: 0;
@@ -23,7 +19,7 @@ const Wrapper = styled.div<WrapperProps>`
   border-left: 4px solid ${(props) => props.theme.colors.border};
   background-color: ${(props) => props.theme.colors.bg};
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     display: none;
   }
 `;
@@ -48,13 +44,13 @@ const Items = styled.nav`
   flex: 1;
 `;
 
-interface NavDrawerProps {
+interface NavDrawerPropType {
   close: () => void;
   isOpen: boolean;
   items: string[];
 }
 
-export default function NavDrawer({ close, isOpen, items }: NavDrawerProps) {
+export default function NavDrawer({ close, isOpen, items }: NavDrawerPropType) {
   return (
     <Wrapper $open={isOpen}>
       <Header>
