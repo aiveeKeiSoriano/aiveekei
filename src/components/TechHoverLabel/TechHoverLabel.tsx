@@ -1,21 +1,15 @@
 import styled from "styled-components";
 
-interface WrapperProps {
-  $isVisible: boolean;
-}
-
-const Wrapper = styled.div<WrapperProps>`
-  /* opacity: ${(props) => (props.$isVisible ? 1 : 0)};
-  visibility: ${(props) => (props.$isVisible ? "visible" : "hidden")}; */
-  opacity: 1;
-  visibility: visible;
-  pointer-events: none;
+const Wrapper = styled.div<{ $isVisible: boolean }>`
+  opacity: ${(props) => (props.$isVisible ? 1 : 0)};
+  visibility: ${(props) => (props.$isVisible ? "visible" : "hidden")};
+  position: absolute;
+  display: flex;
   justify-content: center;
   align-items: center;
   max-height: 100vh;
-  display: flex;
-  position: absolute;
   inset: 0%;
+  pointer-events: none;
 `;
 
 const Label = styled.div`
@@ -58,11 +52,7 @@ const TextContainer = styled.div`
   overflow: hidden;
 `;
 
-interface TextProps {
-  $isVisible: boolean;
-}
-
-const Text = styled.div<TextProps>`
+const Text = styled.div<{ $isVisible: boolean }>`
   translate: none;
   rotate: none;
   scale: none;
@@ -76,12 +66,15 @@ const Text = styled.div<TextProps>`
     props.$isVisible ? "translate(0px, 0px)" : "translate(0%, 100%)"};
 `;
 
-interface TechLabelProps {
+interface TechHoverLabelPropType {
   isVisible: boolean;
   name: string | null;
 }
 
-export default function TechLabel({ isVisible, name }: TechLabelProps) {
+export default function TechHoverLabel({
+  isVisible,
+  name,
+}: TechHoverLabelPropType) {
   return (
     <Wrapper $isVisible={isVisible}>
       <Label>

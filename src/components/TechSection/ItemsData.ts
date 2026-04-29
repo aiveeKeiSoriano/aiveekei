@@ -13,6 +13,7 @@ import MUI from "../../assets/tech/MUI.svg";
 import Next from "../../assets/tech/Next.svg";
 import PostgreSQL from "../../assets/tech/PostgreSQL.svg";
 import React from "../../assets/tech/React.svg";
+import ReactNative from "../../assets/tech/ReactNative.svg";
 import Storybook from "../../assets/tech/Storybook.svg";
 import Tailwind from "../../assets/tech/Tailwind.svg";
 import Typescript from "../../assets/tech/Typescript.svg";
@@ -45,19 +46,20 @@ const LARGE_GRID = [
     "Material UI",
     "Storybook",
     null,
+    "React Native",
     null,
-    "Jest",
     "ASP.NET MVC",
     "Unity",
   ],
-  ["ClickUp", "Jira", null, "Coda", null, null, "Windsurf", "Claude"],
+  ["ClickUp", "Jira", null, "Jest", null, "Coda", "Windsurf", "Claude"],
 ];
 
 const MEDIUM_GRID = [
   ["React JS", null, "Typescript", "PostgreSQL", null, "Javascript"],
   [null, "Express JS", null, "Git", null, "Tailwind"],
   ["MongoDB", null, null, null, "Next JS", "Storybook"],
-  ["Material UI", null, "Jest", "ASP.NET MVC", "Electron", "Unity"],
+  ["Material UI", "Jest", null, "ASP.NET MVC", null, "Unity"],
+  [null, null, "React Native", null, "Electron", null],
   ["ClickUp", "Jira", null, "Coda", "Windsurf", "Claude"],
 ];
 
@@ -67,29 +69,17 @@ const SMALL_GRID = [
   [null, "Git", "Tailwind", null, "MongoDB"],
   ["Material UI", null, null, null, "Next JS"],
   ["Storybook", "Jest", null, "ASP.NET MVC", "Electron"],
-  [null, null, "Unity", null, "ClickUp"],
+  ["React Native", null, "Unity", null, "ClickUp"],
   ["Jira", "Coda", null, "Windsurf", "Claude"],
 ];
 
-const EXTRA_SMALL_GRID = [
-  ["React JS", null, "Typescript", "PostgreSQL"],
-  [null, "Javascript", null, "Express JS"],
-  ["Git", "Tailwind", "MongoDB", null],
-  [null, "Material UI", null, "Next JS"],
-  ["Storybook", "Jest", null, "ASP.NET MVC"],
-  [null, "Electron", "Unity", "ClickUp"],
-  ["Jira", "Coda", "Windsurf", "Claude"],
-];
-
 export const COL = {
-  xs: EXTRA_SMALL_GRID[0].length,
   s: SMALL_GRID[0].length,
   m: MEDIUM_GRID[0].length,
   l: LARGE_GRID[0].length,
 };
 
 export const ROW = {
-  xs: EXTRA_SMALL_GRID.length,
   s: SMALL_GRID.length,
   m: MEDIUM_GRID.length,
   l: LARGE_GRID.length,
@@ -117,10 +107,19 @@ function buildPositionMap(grid: Grid): PositionMap {
 }
 
 const positions = {
-  xs: buildPositionMap(EXTRA_SMALL_GRID),
   s: buildPositionMap(SMALL_GRID),
   m: buildPositionMap(MEDIUM_GRID),
   l: buildPositionMap(LARGE_GRID),
+};
+
+const formatMetric = (scores: number[]) => {
+  return {
+    "Concept Knowledge": scores[0],
+    "Syntax Proficiency": scores[1],
+    "Professional Experience": scores[2],
+    "Personal Project Experience": scores[3],
+    "Ecosystem, Tooling, & Setup": scores[4],
+  };
 };
 
 const Items = [
@@ -129,142 +128,178 @@ const Items = [
     image: React,
     description:
       "I am most experienced with ReactJS. I have used it for both professional and personal projects. This website is made with React!",
+    metric: formatMetric([80, 80, 100, 100, 80]),
   },
   {
     name: "Typescript",
     image: Typescript,
     description:
       "I have been continuously integrating Typescript with all my newer projects, choosing it over JavaScript as much as possible. This website is written in Typescript!",
+    metric: formatMetric([80, 80, 60, 80, 90]),
   },
   {
     name: "PostgreSQL",
     image: PostgreSQL,
     description:
       "PostgreSQL is the database I am most experienced with. I have set up and maintained API servers that use PostgreSQL",
+    metric: formatMetric([90, 80, 80, 60, 80]),
   },
   {
     name: "Javascript",
     image: Javascript,
     description:
       "I learned web development using JavaScript and have been using it from the start. ",
+    metric: formatMetric([90, 90, 100, 100, 90]),
   },
   {
     name: "Express JS",
     image: Express,
     description:
       "I have created and maintained an ExpressJS server that is still being used by real users.",
+    metric: formatMetric([90, 80, 80, 60, 80]),
   },
   {
     name: "Git",
     image: Git,
     description:
       "Git is a very important part of web development, and I have never had a project before that doesn’t use Git.",
+    metric: formatMetric([90, 80, 90, 90, 60]),
   },
   {
     name: "Tailwind",
     image: Tailwind,
     description:
       "I made this personal project using Tailwind! Tailwind is like a second language to me.",
+    metric: formatMetric([90, 60, 0, 80, 80]),
   },
   {
     name: "MongoDB",
     image: MongoDB,
     description:
       "MongoDB is the first database I have learned to use and have used it professionally since then.",
+    metric: formatMetric([80, 60, 40, 60, 60]),
   },
   {
     name: "Next JS",
     image: Next,
     description:
       "I went through NextJS's official learning path and created this personal project with it.",
+    metric: formatMetric([80, 80, 0, 60, 80]),
   },
   {
     name: "Material UI",
     image: MUI,
     description:
       "I believe I can manipulate any Material UI component to do anything you need. That's how much I have used Material UI professionally.",
+    metric: formatMetric([90, 90, 100, 100, 90]),
   },
   {
     name: "Storybook",
     image: Storybook,
     description:
       "Storybook is my go-to documentation for my React Projects ever since I used it in a workplace before. Check out this website's storybook here.",
+    metric: formatMetric([90, 80, 80, 80, 80]),
   },
   {
     name: "ASP.NET MVC",
     image: ASP,
     description:
       "I did a total redesign of the website, made with ASP.NET MVC. I worked with the Blazor pages and modified the controllers and database calls.",
+    metric: formatMetric([40, 40, 60, 0, 0]),
+  },
+  {
+    name: "React Native",
+    image: ReactNative,
+    description:
+      "I created pages and features for a React Native app used for rewards for a big petrol company. The app was made to be released in multiple countries.",
+    metric: formatMetric([60, 60, 60, 0, 20]),
   },
   {
     name: "Electron",
     image: Electron,
     description:
       "I worked on maintaining an Electron app that uses a server that I also worked on.",
+    metric: formatMetric([60, 60, 60, 0, 0]),
   },
   {
     name: "Unity",
     image: Unity,
     description:
       "I added authentication and a UI page to a game made with Unity.",
+    metric: formatMetric([20, 0, 20, 0, 0]),
   },
   {
     name: "Jest",
     image: Jest,
     description: "I used Jest extensively for testing API routes.",
+    metric: formatMetric([80, 60, 80, 60, 20]),
   },
   {
     name: "ClickUp",
     image: ClickUp,
     description:
       "Part of the job is task management. A former workplace uses ClickUp for planning and tracking progress, and I obtained the ClickUp certification for it.",
+    metric: formatMetric([90, 80, 80, 0, 80]),
   },
   {
     name: "Jira",
     image: Jira,
     description:
       "Several previous workplaces use Jira for scrums. I also use Jira to plan this website.",
+    metric: formatMetric([60, 60, 60, 60, 40]),
   },
   {
     name: "Coda",
     image: Coda,
     description:
-      " I was once hired to code Coda Packs to help businesses consolidate their data to Coda. I also took the official Coda course and got certification along the way. Here's my capstone project.",
+      "I was once hired to code Coda Packs to help businesses consolidate their data to Coda. I also took the official Coda course and got certification along the way. Here's my capstone project.",
+    metric: formatMetric([90, 90, 90, 0, 90]),
   },
   {
     name: "Windsurf",
     image: Windsurf,
     description:
-      "It is important to utilize emerging technology to our advantage. I used Windsurf before to do the repetitive part of development.",
+      "It is important to utilize emerging technology to our advantage. I used Windsurf at work to do the repetitive part of development.",
+    metric: formatMetric([60, 60, 60, 60, 60]),
   },
   {
     name: "Claude",
     image: Claude,
     description:
-      " I can't believe how fast these technologies are improving. Claude helps me deliver work faster.",
+      "I can't believe how fast these technologies are improving. Claude helps me complete work faster.",
+    metric: formatMetric([60, 60, 0, 60, 60]),
   },
-].map(({ name, image, description }) => ({
+].map(({ name, image, description, metric }) => ({
   name,
   image,
   description,
+  metric,
   position: {
-    xs: positions.xs[name],
     s: positions.s[name],
     m: positions.m[name],
     l: positions.l[name],
   },
 }));
 
-export type TechItem = {
+export type TechItemType = {
   image: string;
   name: string;
   description: string;
   position: {
-    xs: [number, number];
     s: [number, number];
     m: [number, number];
     l: [number, number];
   };
+  metric: TechMetricType;
 };
+
+export type TechMetricType = {
+  "Concept Knowledge": number;
+  "Syntax Proficiency": number;
+  "Professional Experience": number;
+  "Personal Project Experience": number;
+  "Ecosystem, Tooling, & Setup": number;
+};
+
 export const TOTAL_ITEMS = Items.length;
 export default Items;

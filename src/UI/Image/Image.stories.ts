@@ -18,11 +18,13 @@ export const MultipleSources = {
         { src: HeroWebp, type: "image/webp" },
       ],
     },
+    width: "500px",
   },
 };
 
 export const SingleSource = {
   args: {
     src: MenuIcon,
+    width: "100px",
   },
 };

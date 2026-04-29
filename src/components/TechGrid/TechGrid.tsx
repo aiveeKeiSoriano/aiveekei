@@ -1,116 +1,65 @@
-import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import TechDetails from "../TechDetails/TechDetails";
-import TechIcon from "../TechIcon/TechIcon";
-import Items from "./Items";
-import TechLabel from "./Label";
+import TechGridIcon from "../TechGridIcon/TechGridIcon";
+import ItemsData from "../TechSection/ItemsData";
 
-const Wrapper = styled.div`
-  width: 100%;
-  padding: 3rem 2rem;
+const Wrapper = styled.div<{ $hasSelectedItem: boolean }>`
   position: relative;
-  display: flex;
-  align-items: center;
+  transition: width 0.8s ease;
+  width: 100%;
+  flex-shrink: 0;
+  height: 85vh;
+
+  ${({ $hasSelectedItem }) =>
+    $hasSelectedItem &&
+    css`
+      width: 40%;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
+        width: 35%;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.s}) {
+        display: none;
+      }
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    padding: 1rem;
+    display: none;
   }
 `;
 
-interface GridProps {
-  $hasSelectedItem: boolean;
+interface TechGridPropType {
+  hasSelectedItem: boolean;
+  selectedItem: number | null;
+  selectItem: (index: number) => void;
+  showLabel: (name: string) => void;
+  hideLabel: () => void;
 }
 
-const Grid = styled.div<GridProps>`
-  position: relative;
-  transition: width 0.8s ease;
-  width: ${({ $hasSelectedItem }) => ($hasSelectedItem ? "50%" : "100%")};
-  flex-shrink: 0;
-  height: 85vh;
-`;
-
-export default function TechGrid() {
-  const [isLabelVisible, setIsLabelVisible] = useState(false);
-  const [hoveredName, setHoveredName] = useState<string | null>(null);
-  const [selectedItem, setSelectedItem] = useState<number | null>(null);
-
-  const enterTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const leaveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  /**
-   * Settimeout is added here so when user switched from 1 icon to another quickly,
-   * it will have a 300ms delay to give let the mouseleave on the previous icon to fire
-   * and show the exit transition.
-   *
-   * TimeoutRefs are used to catch the stacking of settimeouts when user quickly enter
-   * and leave multiple icons
-   */
-
-  const showLabel = (name: string) => {
-    if (selectedItem != null) return;
-    if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
-    if (hoveredName) {
-      if (enterTimeoutRef.current) clearTimeout(enterTimeoutRef.current);
-      enterTimeoutRef.current = setTimeout(() => {
-        setIsLabelVisible(true);
-        setHoveredName(name);
-      }, 250);
-    } else {
-      setIsLabelVisible(true);
-      setHoveredName(name);
-    }
-  };
-
-  const hideLabel = () => {
-    if (selectedItem != null) return;
-    if (enterTimeoutRef.current) clearTimeout(enterTimeoutRef.current);
-    setIsLabelVisible(false);
-    leaveTimeoutRef.current = setTimeout(() => {
-      setHoveredName(null);
-    }, 200);
-  };
-
-  const selectItem = (index: number) => {
-    if (selectedItem === index) return;
-    setSelectedItem(index);
-    hideLabel();
-  };
-
-  const closeDetails = () => {
-    setSelectedItem(null);
-  };
-
-  useEffect(
-    () => () => {
-      if (enterTimeoutRef.current) clearTimeout(enterTimeoutRef.current);
-      if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
-    },
-    [],
-  );
-
+export default function TechGrid({
+  hasSelectedItem,
+  selectedItem,
+  selectItem,
+  showLabel,
+  hideLabel,
+}: TechGridPropType) {
   return (
-    <Wrapper>
-      <Grid $hasSelectedItem={selectedItem != null}>
-        {Items.map((item, index) => (
-          <TechIcon
-            index={index}
-            image={item.image}
-            key={item.name}
-            name={item.name}
-            onMouseEnter={() => showLabel(item.name)}
-            onMouseLeave={hideLabel}
-            onClick={() => selectItem(index)}
-            position={item.position}
-            isSelected={selectedItem === index}
-            hasSelectedItem={selectedItem != null}
-          />
-        ))}
-      </Grid>
-      {selectedItem != null && (
-        <TechDetails item={Items[selectedItem ?? 0]} onClose={closeDetails} />
-      )}
-      <TechLabel isVisible={isLabelVisible} name={hoveredName} />
+    <Wrapper $hasSelectedItem={hasSelectedItem}>
+      {ItemsData.map((item, index) => (
+        <TechGridIcon
+          index={index}
+          image={item.image}
+          key={item.name}
+          name={item.name}
+          onMouseEnter={() => showLabel(item.name)}
+          onMouseLeave={hideLabel}
+          onClick={() => selectItem(index)}
+          position={item.position}
+          isSelected={selectedItem === index}
+          hasSelectedItem={hasSelectedItem}
+        />
+      ))}
     </Wrapper>
   );
 }

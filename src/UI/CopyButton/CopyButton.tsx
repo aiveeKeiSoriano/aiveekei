@@ -34,11 +34,11 @@ const Feedback = styled.div`
   top: -30px;
 `;
 
-interface CopyButtonProps {
+interface CopyButtonPropType {
   text: string;
 }
 
-export default function CopyButton({ text }: CopyButtonProps) {
+export default function CopyButton({ text }: CopyButtonPropType) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {

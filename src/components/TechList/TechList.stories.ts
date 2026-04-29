@@ -1,19 +1,22 @@
 import { fn } from "storybook/test";
 
-import TechGrid from "./TechGrid";
+import TechList from "./TechList";
 
 export default {
-  component: TechGrid,
-  title: "TechSection/TechGrid",
+  component: TechList,
+  title: "TechSection/TechList",
   args: {
     selectItem: fn(),
-    showLabel: fn(),
-    hideLabel: fn(),
+  },
+  globals: {
+    viewport: { isRotated: false, value: "mobile" },
   },
 };
 
 export const Default = {
-  args: { hasSelectedItem: false },
+  args: {
+    hasSelectedItem: false,
+  },
 };
 
 export const WithSelectedItem = {

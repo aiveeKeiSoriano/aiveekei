@@ -1,10 +1,6 @@
 import styled, { css } from "styled-components";
 
-interface FrameProps {
-  $isSelected: boolean;
-}
-
-export const Frame = styled.div<FrameProps>`
+export const Frame = styled.div<{ $isSelected: boolean }>`
   z-index: 2;
   outline-offset: -2px;
   pointer-events: none;
@@ -116,4 +112,23 @@ export const FrameBorderR = styled(FrameBorder)`
   right: 0;
   transform: scaleY(0);
   transition: transform 0.5s cubic-bezier(0.625, 0.05, 0, 1);
+`;
+
+export const frameHoverEffect = css`
+  &:hover {
+    ${FrameBorderT}, ${FrameBorderB} {
+      transform: scaleX(1);
+    }
+    ${FrameBorderL}, ${FrameBorderR} {
+      transform: scaleY(1);
+    }
+
+    ${FrameBorder} {
+      background-color: ${({ theme }) => theme.colors.border};
+    }
+
+    ${FrameCorner} {
+      border-color: ${({ theme }) => theme.colors.border};
+    }
+  }
 `;

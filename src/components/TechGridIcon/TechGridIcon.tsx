@@ -1,20 +1,10 @@
 import styled, { css } from "styled-components";
 
 import Image from "../../UI/Image/Image";
-import { COL, ROW, TOTAL_ITEMS } from "../TechGrid/Items";
-import {
-  Frame,
-  FrameBorder,
-  FrameBorderB,
-  FrameBorderL,
-  FrameBorderR,
-  FrameBorderT,
-  FrameCorner,
-  FrameCornerBL,
-  FrameCornerBR,
-  FrameCornerTL,
-  FrameCornerTR,
-} from "./IconFrame";
+import ItemFrame from "../IconFrame/IconFrame";
+import { frameHoverEffect } from "../IconFrame/IconFrameStyles";
+import { COL, ROW, TOTAL_ITEMS } from "../TechSection/ItemsData";
+
 /**
  * The TechIcon component are absolute components positioned based on
  * the coordinates of each item on the arrays that can be found in '/TechGrid/Items'
@@ -31,8 +21,9 @@ import {
  * Then an adjustment of 1px is made to overlap the borders of adjacent items
  */
 
-type Breakpoint = keyof typeof COL;
-const positionItemOnGrid = (bp: Breakpoint, position: GridPosition) => {
+type BreakpointType = keyof typeof COL;
+type GridPositionType = { l: number[]; m: number[]; s: number[] };
+const positionItemOnGrid = (bp: BreakpointType, position: GridPositionType) => {
   const cols = COL[bp];
   const rows = ROW[bp];
   const [x, y] = position[bp];
@@ -47,36 +38,33 @@ const positionItemOnGrid = (bp: Breakpoint, position: GridPosition) => {
 
 /**
  * When an item is selected, items becomes a list with 3 columns instead of
- * a grid.
+ * a grid. Applicable on screens size 'm' and up.
  */
 
-const positionItemOnList = (index: number) => {
-  const cols = 3;
+const positionItemOnList = (index: number, cols: number, width: string) => {
   const rows = Math.ceil(TOTAL_ITEMS / cols);
   const x = index % cols;
   const y = Math.floor(index / cols);
   return `
     height: calc(85vh / ${rows});
-    width: 6em;
+    width: ${width};
     top: calc((85vh / ${rows} - 1px) * ${y});
-    left: calc(20% + calc(6em * ${x} - 1px));
+    left: calc(20% + calc(${width} * ${x} - 1px));
   `;
 };
-
-type GridPosition = { l: number[]; m: number[]; s: number[]; xs: number[] };
-interface WrapperProps {
-  $position: GridPosition;
+interface WrapperPropType {
+  $position?: GridPositionType;
   $hasSelectedItem: boolean;
   $isSelected: boolean;
   $index: number;
 }
 
-const Item = styled.div<WrapperProps>`
+const Wrapper = styled.div<WrapperPropType>`
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primary};
-  position: absolute;
   cursor: pointer;
   transition-property: top, left, width, height;
   transition-duration: 0.8s;
@@ -84,14 +72,9 @@ const Item = styled.div<WrapperProps>`
 
   z-index: ${({ $isSelected }) => ($isSelected ? 1 : 0)};
 
-  ${({ $hasSelectedItem, $index }) =>
-    $hasSelectedItem &&
-    css`
-      ${positionItemOnList($index)}
-    `}
-
   ${({ $hasSelectedItem, $position }) =>
     !$hasSelectedItem &&
+    $position &&
     css`
       ${positionItemOnGrid("l", $position)}
 
@@ -102,33 +85,26 @@ const Item = styled.div<WrapperProps>`
       @media (max-width: ${({ theme }) => theme.breakpoints.s}) {
         ${positionItemOnGrid("s", $position)}
       }
+    `}
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-        ${positionItemOnGrid("xs", $position)}
+  ${({ $hasSelectedItem, $index }) =>
+    $hasSelectedItem &&
+    css`
+      ${positionItemOnList($index, 3, "6em")}
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
+        ${positionItemOnList($index, 2, "5em")}
       }
     `}
 
-  &:hover {
+    ${frameHoverEffect}
+
+    &:hover {
     /**
-    * z- index is set to bring the whole item an index higher that the other items
-    * so that the parts of the corners that stick out will show on top of adjacent items
-    */
+      * z- index is set to bring the whole item an index higher that the other items
+      * so that the parts of the corners that stick out will show on top of adjacent items
+      */
     z-index: 1;
-
-    ${FrameBorderT}, ${FrameBorderB} {
-      transform: scaleX(1);
-    }
-    ${FrameBorderL}, ${FrameBorderR} {
-      transform: scaleY(1);
-    }
-
-    ${FrameBorder} {
-      background-color: ${({ theme }) => theme.colors.border};
-    }
-
-    ${FrameCorner} {
-      border-color: ${({ theme }) => theme.colors.border};
-    }
   }
 `;
 
@@ -136,19 +112,20 @@ const TechImage = styled(Image)`
   max-height: 60%;
 `;
 
-interface TechIconProps {
+interface TechGridIconPropType {
   image: string;
   name: string;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   onClick?: () => void;
-  position: GridPosition;
+  position?: GridPositionType;
   isSelected: boolean;
   hasSelectedItem: boolean;
   index: number;
+  isListItem?: boolean;
 }
 
-export default function TechIcon({
+export default function TechGridIcon({
   index,
   name,
   image,
@@ -158,9 +135,9 @@ export default function TechIcon({
   position,
   isSelected,
   hasSelectedItem,
-}: TechIconProps) {
+}: TechGridIconPropType) {
   return (
-    <Item
+    <Wrapper
       $hasSelectedItem={hasSelectedItem}
       $position={position}
       $isSelected={isSelected}
@@ -169,17 +146,8 @@ export default function TechIcon({
       onMouseLeave={onMouseLeave}
       onClick={onClick}
     >
-      <Frame $isSelected={isSelected}>
-        <FrameCornerTL />
-        <FrameCornerTR />
-        <FrameCornerBL />
-        <FrameCornerBR />
-        <FrameBorderT />
-        <FrameBorderB />
-        <FrameBorderL />
-        <FrameBorderR />
-      </Frame>
+      <ItemFrame isSelected={isSelected} />
       <TechImage alt={name} src={image} />
-    </Item>
+    </Wrapper>
   );
 }

@@ -1,49 +1,56 @@
 import styled, { css } from "styled-components";
 
-interface ButtonProps {
-    $isActive?: boolean;
-    $isForMobile?: boolean;
-}
+const Button = styled.button<{ $isActive?: boolean; $isForMobile?: boolean }>`
+  padding: 0.5em 1em;
+  border: none;
+  background-color: transparent;
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.sans};
+  padding: 20px 20px 16px;
+  font-size: 2.8rem;
+  line-height: 1;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.5s linear,
+    color 0.5s linear;
 
-const Button = styled.button<ButtonProps>`
-    padding: 0.5em 1em;
-    border: none;
-    background-color: transparent;
-    color: ${props => props.theme.colors.text};
-    font-family: ${props => props.theme.fonts.sans};
-    padding: 20px 20px 16px;
-    font-size: 2.8rem;
-    line-height: 1;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.5s linear, color 0.5s linear;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.textSecondary};
+  }
 
-    &:hover {
-        background-color: ${props => props.theme.colors.secondary};
-        color: ${props => props.theme.colors.textSecondary};
-    }
-
-    ${props => props.$isActive && css`
-        background-color: ${props => props.theme.colors.secondary};
-        color: ${props => props.theme.colors.textSecondary};
+  ${(props) =>
+    props.$isActive &&
+    css`
+      background-color: ${(props) => props.theme.colors.secondary};
+      color: ${(props) => props.theme.colors.textSecondary};
     `}
 
-    ${props => props.$isForMobile && css`
-        width: 100%;
-        text-align: left;
-        border-bottom: 4px solid ${props => props.theme.colors.border};
+  ${(props) =>
+    props.$isForMobile &&
+    css`
+      width: 100%;
+      text-align: left;
+      border-bottom: 4px solid ${(props) => props.theme.colors.border};
     `}
-`
+`;
 
-interface NavButtonProps {
-    isActive?: boolean;
-    isForMobile?: boolean;
-    label: string;
+interface NavButtonPropType {
+  isActive?: boolean;
+  isForMobile?: boolean;
+  label: string;
 }
 
-export default function NavButton({isActive, isForMobile, label} : NavButtonProps) {
-    return (
-        <Button $isActive={isActive} $isForMobile={isForMobile}>{label}</Button>
-    )
+export default function NavButton({
+  isActive,
+  isForMobile,
+  label,
+}: NavButtonPropType) {
+  return (
+    <Button $isActive={isActive} $isForMobile={isForMobile}>
+      {label}
+    </Button>
+  );
 }
