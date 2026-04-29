@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import type { ImageSources } from "../../UI/Image/Image";
 
-import HeroAvif from "../../assets/Hero/Hero.avif";
-import HeroPng from "../../assets/Hero/Hero.png";
-import HeroWebp from "../../assets/Hero/Hero.webp";
+import HeroAvif from "../../assets/hero/Hero.avif";
+import HeroPng from "../../assets/hero/Hero.png";
+import HeroWebp from "../../assets/hero/Hero.webp";
 import EmailIcon from "../../assets/mail.svg";
 import Button from "../../UI/Button/Button";
 import CopyButton from "../../UI/CopyButton/CopyButton";

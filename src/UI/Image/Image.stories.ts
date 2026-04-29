@@ -1,6 +1,6 @@
-import HeroAvif from "../../assets/Hero/Hero.avif";
-import HeroPng from "../../assets/Hero/Hero.png";
-import HeroWebp from "../../assets/Hero/Hero.webp";
+import HeroAvif from "../../assets/hero/Hero.avif";
+import HeroPng from "../../assets/hero/Hero.png";
+import HeroWebp from "../../assets/hero/Hero.webp";
 import MenuIcon from "../../assets/menu.svg";
 import Image from "./Image";
 

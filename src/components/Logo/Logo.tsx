@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 import type { ImageSources } from "../../UI/Image/Image";
 
-import LogoAvif from "../../assets/Logo/logo.avif";
-import LogoPng from "../../assets/Logo/logo.png";
-import LogoWebp from "../../assets/Logo/logo.webp";
+import LogoAvif from "../../assets/logo/logo.avif";
+import LogoPng from "../../assets/logo/logo.png";
+import LogoWebp from "../../assets/logo/logo.webp";
 import IconButton from "../../UI/IconButton/IconButton";
 
 const Wrapper = styled(IconButton)`
