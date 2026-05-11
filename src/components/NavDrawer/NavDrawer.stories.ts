@@ -1,3 +1,4 @@
+import { NAV_ITEMS } from "../Nav/NavRoutes";
 import NavDrawer from "./NavDrawer";
 
 export default {
@@ -14,13 +15,13 @@ export default {
 export const Open = {
   args: {
     isOpen: true,
-    items: ["Projects", "About", "Contact"],
+    items: NAV_ITEMS,
   },
 };
 
 export const Close = {
   args: {
     isOpen: false,
-    items: ["Projects", "About", "Contact"],
+    items: NAV_ITEMS,
   },
 };

@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 
+import { COL, ROW, TOTAL_ITEMS } from "../../data/TechList";
 import Image from "../../UI/Image/Image";
 import ItemFrame from "../IconFrame/IconFrame";
 import { frameHoverEffect } from "../IconFrame/IconFrameStyles";
-import { COL, ROW, TOTAL_ITEMS } from "../TechSection/ItemsData";
 
 /**
  * The TechIcon component are absolute components positioned based on

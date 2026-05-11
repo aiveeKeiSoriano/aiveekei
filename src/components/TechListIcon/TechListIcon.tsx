@@ -43,6 +43,7 @@ const Label = styled.p<{ $hasSelectedItem: boolean }>`
   font-size: 2rem;
   line-height: 1em;
   word-wrap: break-word;
+  overflow-wrap: break-word;
   width: 85%;
   text-align: left;
   display: ${({ $hasSelectedItem }) => ($hasSelectedItem ? "none" : "block")};

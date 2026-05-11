@@ -2,7 +2,7 @@ import "../src/index.css";
 
 import type { Preview } from "@storybook/react-vite";
 
-import React from "react";
+import { MemoryRouter } from "react-router";
 import { MINIMAL_VIEWPORTS } from "storybook/viewport";
 import { ThemeProvider } from "styled-components";
 
@@ -31,7 +31,9 @@ const preview: Preview = {
     (Story) => (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Story />
+        <MemoryRouter>
+          <Story />
+        </MemoryRouter>
       </ThemeProvider>
     ),
   ],

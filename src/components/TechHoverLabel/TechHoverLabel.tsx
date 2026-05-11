@@ -10,6 +10,7 @@ const Wrapper = styled.div<{ $isVisible: boolean }>`
   max-height: 100vh;
   inset: 0%;
   pointer-events: none;
+  overflow: hidden;
 `;
 
 const Label = styled.div`
@@ -22,24 +23,17 @@ const Label = styled.div`
   mix-blend-mode: difference;
   text-align: center;
   text-transform: uppercase;
-  font-size: 130px;
-  line-height: 130px;
+  font-size: 8rem;
+  line-height: 1em;
   font-weight: 500;
   font-family: ${({ theme }) => theme.fonts.display};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
-    font-size: 100px;
-    line-height: 100px;
+    font-size: 6.5rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.s}) {
-    font-size: 80px;
-    line-height: 80px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 5rem;
   }
 `;
 

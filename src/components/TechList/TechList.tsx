@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import styled from "styled-components";
 
+import Items from "../../data/TechList";
 import TechListIcon from "../TechListIcon/TechListIcon";
-import Items from "../TechSection/ItemsData";
 import useScrollToView from "./useScrollToView";
 
 const ListWrapper = styled.div`

@@ -25,7 +25,7 @@ const Img = styled(Image)`
   }
 `;
 
-interface IconButtonPropType {
+interface IconButtonProps {
   alt: string;
   height: string;
   icon: ImageSources | string;
@@ -40,7 +40,7 @@ export default function IconButton({
   width,
   alt,
   ...props
-}: IconButtonPropType) {
+}: IconButtonProps) {
   return (
     <Wrapper onClick={onClick} {...props}>
       <Img alt={alt} height={height} src={icon} width={width} />

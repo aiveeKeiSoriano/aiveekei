@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import Hero from "../components/Hero/Hero";
-import Links from "../components/Links/Links";
-import TechSection from "../components/TechSection/TechSection";
+import Hero from "../../components/Hero/Hero";
+import Links from "../../components/Links/Links";
+import TechSection from "../../components/TechSection/TechSection";
 
 const Wrapper = styled.main`
   width: 100%;

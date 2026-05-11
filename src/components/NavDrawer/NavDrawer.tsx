@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import type { NavItemType } from "../Nav/NavRoutes";
+
 import CloseIcon from "../../assets/close.svg";
 import IconButton from "../../UI/IconButton/IconButton";
 import NavButton from "../NavButton/NavButton";
@@ -47,7 +49,7 @@ const Items = styled.nav`
 interface NavDrawerPropType {
   close: () => void;
   isOpen: boolean;
-  items: string[];
+  items: NavItemType[];
 }
 
 export default function NavDrawer({ close, isOpen, items }: NavDrawerPropType) {
@@ -64,7 +66,7 @@ export default function NavDrawer({ close, isOpen, items }: NavDrawerPropType) {
       </Header>
       <Items>
         {items.map((item) => (
-          <NavButton isForMobile key={item} label={item} />
+          <NavButton isForMobile key={item.label} item={item} onClick={close} />
         ))}
       </Items>
     </Wrapper>

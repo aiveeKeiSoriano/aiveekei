@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import styled from "styled-components";
 
 import type { ImageSources } from "../../UI/Image/Image";
@@ -7,7 +8,7 @@ import LogoPng from "../../assets/logo/logo.png";
 import LogoWebp from "../../assets/logo/logo.webp";
 import IconButton from "../../UI/IconButton/IconButton";
 
-const Wrapper = styled(IconButton)`
+const LogoIconButton = styled(IconButton)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,5 +26,14 @@ export default function Logo() {
       { src: LogoWebp, type: "image/webp" },
     ],
   } satisfies ImageSources;
-  return <Wrapper alt="logo" height="60px" icon={LOGO_SOURCES} width="60px" />;
+  return (
+    <Link to="/">
+      <LogoIconButton
+        alt="logo"
+        height="60px"
+        icon={LOGO_SOURCES}
+        width="60px"
+      />
+    </Link>
+  );
 }

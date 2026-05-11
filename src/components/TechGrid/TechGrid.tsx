@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
+import ItemsData from "../../data/TechList";
 import TechGridIcon from "../TechGridIcon/TechGridIcon";
-import ItemsData from "../TechSection/ItemsData";
 
 const Wrapper = styled.div<{ $hasSelectedItem: boolean }>`
   position: relative;

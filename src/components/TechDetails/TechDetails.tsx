@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import type { TechItemType, TechMetricType } from "../TechSection/ItemsData";
+import type { TechItemType, TechMetricType } from "../../data/TechList";
 
 import Close from "../../assets/close.svg";
 import IconButton from "../../UI/IconButton/IconButton";
@@ -22,6 +22,13 @@ const Wrapper = styled.div`
 const CloseButton = styled(IconButton)`
   align-self: flex-start;
   padding: 0 0.5rem;
+
+  & img {
+    @media (max-width: ${({ theme }) => theme.breakpoints.s}) {
+      width: 60px;
+      height: 60px;
+    }
+  }
 `;
 
 const Header = styled.div`
@@ -31,6 +38,11 @@ const Header = styled.div`
   gap: 1em;
   padding: 1rem 0;
   background-color: ${({ theme }) => theme.colors.primary};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    gap: 0.5em;
+    padding: 0.5em;
+  }
 `;
 
 const TechImage = styled(Image)`
@@ -46,44 +58,45 @@ const TechImage = styled(Image)`
     width: 80px;
     max-height: 80px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    width: 60px;
+    max-height: 60px;
+  }
 `;
 
 const Name = styled.p`
   text-transform: uppercase;
-  font-size: 50px;
-  line-height: 50px;
+  font-size: 2.6rem;
+  line-height: 1em;
   font-weight: 500;
   font-family: ${({ theme }) => theme.fonts.display};
+  word-break: break-word;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
-    font-size: 42px;
-    line-height: 42px;
+    font-size: 2.4rem;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.s}) {
-    font-size: 40px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    font-size: 1.8rem;
   }
 `;
 
 const Description = styled.p`
-  font-size: 18px;
+  height: 80px;
+  font-size: 1.2rem;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 1.2em;
   background-color: ${({ theme }) => theme.colors.primary};
   text-align: left;
   padding: 0 1rem;
-  height: 80px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
     height: 100px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.s}) {
-    height: 130px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    height: 150px;
+    height: fit-content;
   }
 `;
 

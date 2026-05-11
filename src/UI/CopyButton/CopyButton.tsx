@@ -29,7 +29,7 @@ const Feedback = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   padding: 0 5px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 0.8rem;
   position: absolute;
   top: -30px;
 `;

@@ -18,17 +18,17 @@ import Target from "../../assets/target.svg";
 import useMousePosition from "../../hooks/useMousePosition";
 
 const Image = styled.img`
-  border-radius: 100%;
-  height: 32px;
-  left: 0;
-  pointer-events: none;
+  z-index: 10000;
   position: fixed;
   top: 0;
+  left: 0;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 100%;
+  mix-blend-mode: difference;
   transition: opacity 0.15s ease;
   user-select: none;
-  width: 32px;
-  z-index: 10000;
-  mix-blend-mode: difference;
+  pointer-events: none;
 `;
 
 export default function CrossHair() {

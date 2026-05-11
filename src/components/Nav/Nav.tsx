@@ -6,6 +6,7 @@ import IconButton from "../../UI/IconButton/IconButton";
 import Logo from "../Logo/Logo";
 import NavButton from "../NavButton/NavButton";
 import NavDrawer from "../NavDrawer/NavDrawer";
+import { NAV_ITEMS } from "./NavRoutes";
 
 const Wrapper = styled.header`
   width: 100%;
@@ -37,8 +38,6 @@ const Menu = styled(IconButton)`
   }
 `;
 
-const NAV_ITEMS = ["Projects"];
-
 export default function Nav() {
   const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
 
@@ -47,7 +46,7 @@ export default function Nav() {
       <Logo />
       <Items>
         {NAV_ITEMS.map((item) => (
-          <NavButton key={item} label={item} />
+          <NavButton key={item.label} item={item} />
         ))}
       </Items>
       <Menu

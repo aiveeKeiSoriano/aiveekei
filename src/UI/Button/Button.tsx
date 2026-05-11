@@ -35,13 +35,22 @@ const Wrapper = styled.button`
   }
 `;
 
-interface ButtonPropType {
+type ButtonPropType = (WithIcon | WithoutIcon) & {
   children?: React.ReactNode;
-  icon?: string;
+  onClick?: () => void;
+};
+
+type WithIcon = {
+  icon: string;
   iconPosition?: "left" | "right";
   label: string;
-  onClick?: () => void;
-}
+};
+
+type WithoutIcon = {
+  icon?: never;
+  iconPosition?: never;
+  label?: string;
+};
 
 export default function Button({
   children,

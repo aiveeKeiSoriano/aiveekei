@@ -14,18 +14,18 @@ import ReactIconSVG from "./ReactIconSVG";
 
 const Container = styled.div`
   min-height: 70vh;
+  padding: 5em;
+  background-color: ${(props) => props.theme.colors.bg};
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5em;
   gap: 2em;
   user-select: none !important;
-  background-color: ${(props) => props.theme.colors.bg};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
     min-height: unset;
-    flex-direction: column;
     padding: 5em 5em;
+    flex-direction: column;
     gap: 3em;
   }
 
@@ -36,9 +36,9 @@ const Container = styled.div`
 `;
 
 const TextContainer = styled.div`
+  max-width: 50%;
   display: flex;
   flex-direction: column;
-  max-width: 50%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.m}) {
     max-width: 100%;
@@ -46,10 +46,10 @@ const TextContainer = styled.div`
 `;
 
 const Text = styled.h1`
-  margin-top: 0px;
-  margin-bottom: 12px;
+  margin-top: 0;
+  margin-bottom: 0.1em;
   font-size: 6rem;
-  line-height: 0.8;
+  line-height: 0.8em;
   font-weight: 700;
   text-align: left;
 
@@ -66,7 +66,7 @@ const Text = styled.h1`
 
 const Subtext = styled.h2`
   font-size: 2rem;
-  line-height: 2.5rem;
+  line-height: 1em;
   text-align: left;
   font-weight: 400;
   user-select: none !important;

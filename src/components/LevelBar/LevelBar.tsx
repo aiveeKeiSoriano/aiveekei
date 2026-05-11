@@ -15,15 +15,14 @@ const LabelWrapper = styled.div`
 `;
 
 const Label = styled.p`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 1em;
   text-transform: uppercase;
   flex-grow: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 1rem;
   }
 `;
 

@@ -1,6 +1,6 @@
 import { fn } from "storybook/test";
 
-import Items from "../TechSection/ItemsData";
+import Items from "../../data/TechList";
 import TechDetails from "./TechDetails";
 
 const ITEM = Items[0];

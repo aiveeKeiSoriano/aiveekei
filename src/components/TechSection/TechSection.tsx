@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+import ItemsData from "../../data/TechList";
 import TechDetails from "../TechDetails/TechDetails";
 import TechGrid from "../TechGrid/TechGrid";
 import TechHoverLabel from "../TechHoverLabel/TechHoverLabel";
 import useHoverLabel from "../TechHoverLabel/useHoverLabel";
 import TechList from "../TechList/TechList";
-import ItemsData from "./ItemsData";
 
 const Wrapper = styled.div`
   width: 100%;

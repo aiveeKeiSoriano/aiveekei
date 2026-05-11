@@ -46,5 +46,11 @@ I created this website to showcase my projects, my experience, and the little th
 - This website is deployed in Cloudflare Workers
 - Uploading code to GitHub automatically triggers redeployment in Cloudflare. This includes the Storybook live site.
 
+| Environment | Link |
+|---|---|
+| **PROD** | [aiveekei.com](aiveekei.com) |
+| **STAGING** | [staging.aiveekei.com](staging.aiveekei.com) |
+| **STORYBOOK** | [storybook.aiveekei.com](storybook.aiveekei.com) |
+
 ## Naming convention
 - <b>Types</b> - ends with Type to indicate it is a Type
